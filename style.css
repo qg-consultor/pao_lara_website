@@ -2050,74 +2050,133 @@ input[name="suplementos_tabs"] {
 
 /* ==========================================
    RESPONSIVE DESIGN (GLOBAL / MOBILE FIRST)
+   ==========================================
+
+   Estrategia en mobile (≤ 900px):
+   - El navbar SIEMPRE está en su estado colapsado (círculo + hamburguesa)
+     desde el primer scroll – igual que como se ve en desktop al hacer scroll.
+   - El fondo aurora cubre 100dvh siempre.
+   - Cada sección ajusta sus tamaños de fuente y layouts de columnas.
    ========================================== */
 
 @media (max-width: 900px) {
 
-    /* ==== NAVBAR ==== */
-    .nav-links {
-        display: none !important;
+    /* ==== FONDO ==== */
+    .aurora-bg {
+        height: 100dvh;
+    }
+
+    /* ==== NAVBAR — SIEMPRE COLAPSADO (círculo hamburguesa) ==== */
+
+    /* Resetear estilos que venían del estado normal (desktop expanded) */
+    .navbar-container {
+        padding: 20px 20px !important;
+        justify-content: flex-start !important;
+    }
+
+    /* El navbar siempre es el círculo pequeño */
+    .navbar {
+        width: 70px !important;
+        max-width: 70px !important;
+        padding: 0 !important;
+        border-radius: 50% !important;
+        min-height: 70px;
+        height: 70px !important;
+    }
+
+    .navbar::after {
+        border-radius: 50% !important;
+    }
+
+    /* Logo y links siempre ocultos (como cuando hay scroll en desktop) */
+    .navbar .nav-logo-area,
+    .navbar .nav-links {
+        opacity: 0 !important;
+        pointer-events: none !important;
+        position: absolute !important;
+        transform: scale(0.5) !important;
+    }
+
+    /* Hamburguesa siempre visible */
+    #openmenu {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        position: absolute !important;
+        width: 100% !important;
+        height: 100% !important;
+        top: 0 !important;
+        right: 0 !important;
+    }
+
+    /* Cuando sticky, mismo comportamiento (ya estaba resuelto, reforzamos) */
+    .navbar-container.sticky {
+        padding: 20px 20px !important;
+        justify-content: flex-start !important;
+    }
+
+    .navbar-container.sticky .navbar {
+        width: 70px !important;
+        max-width: 70px !important;
+        border-radius: 50% !important;
+    }
+
+    /* Cuando el menú está abierto (fullscreen) */
+    .navbar-container.menu-open {
+        padding: 0 !important;
+        height: 100vh !important;
+        width: 100vw !important;
+    }
+
+    .navbar-container.menu-open .navbar {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 100% !important;
+        border-radius: 0 !important;
+        flex-direction: column !important;
+        min-height: unset !important;
+    }
+
+    .navbar-container.menu-open .nav-logo-area,
+    .navbar-container.menu-open .nav-links {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        position: relative !important;
+        transform: scale(1) !important;
     }
 
     .navbar-container.menu-open .nav-links {
         display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        margin-left: 0;
     }
 
-    #openmenu {
-        opacity: 1 !important;
-        pointer-events: auto !important;
-        position: relative !important;
-        right: auto !important;
-        top: auto !important;
+    /* Audio btn — ajustar a que no colisione con círculo de nav */
+    .floating-audio-btn {
+        top: 20px;
+        right: 20px;
     }
 
-    .navbar-container {
-        padding: 12px 15px !important;
-    }
-
-    .navbar {
-        width: 100% !important;
-        max-width: 100% !important;
-        justify-content: space-between !important;
-        padding: 10px 18px !important;
-        border-radius: 30px !important;
-    }
-
-    .navbar::after {
-        border-radius: 30px !important;
-    }
-
-    .nav-logo {
-        height: 30px;
-    }
-
-    /* Sticky colapsa a la misma pill ancha, no al círculo */
-    .navbar-container.sticky {
-        padding: 12px 15px !important;
-    }
-
-    .navbar-container.sticky .navbar {
-        width: 100% !important;
-        max-width: 100% !important;
-        border-radius: 30px !important;
+    .back-to-top {
+        right: 20px;
+        bottom: 20px;
     }
 
     /* ==== HERO SECTION ==== */
     .hero-section {
-        padding-top: 90px;
+        padding-top: 110px;
         padding-bottom: 40px;
         padding-left: 15px;
         padding-right: 15px;
-        min-height: auto;
+        min-height: 100dvh;
         overflow: hidden;
     }
 
-    /* Logo decorativo detrás — escalar para no salirse */
     .hero-bg-logo-container {
-        width: 100%;
-        position: absolute;
-        top: 50%;
+        width: 110%;
         left: 50%;
+        top: 35%;
         transform: translate(-50%, -50%);
     }
 
@@ -2125,15 +2184,14 @@ input[name="suplementos_tabs"] {
         width: 100%;
     }
 
-    /* Entrenadora — reducida para no dominar todo */
     .trainer-container {
         position: absolute;
-        top: 0;
+        top: 60px;
         left: 50%;
         transform: translateX(-50%);
-        height: 50vh;
-        max-height: 360px;
-        margin-top: 80px;
+        height: 52vh;
+        max-height: 380px;
+        margin-top: 0;
     }
 
     .trainer-img {
@@ -2141,18 +2199,16 @@ input[name="suplementos_tabs"] {
         width: auto;
     }
 
-    /* Chat Card — ocupa todo el ancho */
     .chat-card-container {
         width: 100%;
         max-width: 100%;
         padding: 0;
-        margin-top: 300px;
+        margin-top: 310px;
         transform: none;
         z-index: 10;
     }
 
     .chat-card {
-        margin: 0;
         padding: 22px 18px;
         border-radius: 24px;
     }
@@ -2166,7 +2222,6 @@ input[name="suplementos_tabs"] {
         font-size: 15px;
     }
 
-    /* Sociales y botones de acción */
     .chat-controls {
         padding-bottom: 15px;
         margin-bottom: 15px;
@@ -2201,14 +2256,14 @@ input[name="suplementos_tabs"] {
         border-radius: 4px;
     }
 
-    /* ==== ABOUT SECTION ==== */
+    /* ==== ABOUT / SOBRE MÍ ==== */
     .about-section {
         padding: 80px 20px 60px 20px;
         min-height: auto;
     }
 
     .about-wrapper {
-        margin-left: 0;
+        margin-left: 0 !important;
         max-width: 100%;
         align-items: center;
     }
@@ -2224,21 +2279,37 @@ input[name="suplementos_tabs"] {
         letter-spacing: 2px;
     }
 
-    /* La foto del salto queda oculta en móvil para no romper el layout */
+    /* La foto del salto: mostrarla pero en flujo normal, no absolute */
     .image-layer {
-        display: none;
+        position: relative !important;
+        left: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        opacity: 1 !important;
+        justify-content: center;
+        margin: 20px 0;
+    }
+
+    .about-section.in-view .image-layer {
+        opacity: 1;
+        transform: none !important;
+    }
+
+    .about-img {
+        height: 350px !important;
+        width: auto;
     }
 
     .video-layer {
         width: 100%;
         max-width: 100%;
         margin-left: 0;
-        transform: none;
-        opacity: 1;
+        transform: none !important;
+        opacity: 1 !important;
     }
 
     .about-section.in-view .video-layer {
-        transform: none;
+        transform: none !important;
     }
 
     /* ==== SERVICIOS ==== */
@@ -2247,59 +2318,174 @@ input[name="suplementos_tabs"] {
         min-height: auto;
     }
 
-    .services-header .title-bold-layer,
-    .services-header .title-light-layer {
-        font-size: 52px;
+    .services-header .title-bold-layer {
+        font-size: 48px;
         text-align: left;
     }
 
     .services-header .title-light-layer {
-        font-size: 70px;
+        font-size: 64px;
         text-align: right;
     }
 
     .menu-title {
-        font-size: 30px;
+        font-size: 28px;
     }
 
     .interactive-menu a {
         padding: 22px 0;
     }
 
-    /* ==== FLOATING BUTTONS ==== */
-    .floating-audio-btn {
-        top: 20px;
-        right: 15px;
+    /* ==== SUPLEMENTOS ==== */
+    .suplementos-section {
+        padding: 60px 15px 80px 15px;
     }
 
-    .back-to-top {
-        right: 15px;
-        bottom: 20px;
+    .suplementos-header .title-bold-layer {
+        font-size: 38px !important;
+        text-align: left;
+    }
+
+    .suplementos-header .title-light-layer {
+        font-size: 50px !important;
+        text-align: right;
+    }
+
+    /* Tabs: apilar sidebar arriba y contenido abajo */
+    .tabs-container {
+        flex-direction: column;
+        min-height: auto;
+        overflow: visible;
+    }
+
+    .tabs-sidebar {
+        width: 100% !important;
+        flex-direction: row !important;
+        flex-wrap: wrap;
+        gap: 8px !important;
+        padding: 15px 12px !important;
+        border-right: none !important;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        justify-content: center;
+    }
+
+    /* Marcador activo desactivado en mobile (usa fondo de label directamente) */
+    .active-marker {
+        display: none !important;
+    }
+
+    .tab-label {
+        font-size: 13px !important;
+        height: auto !important;
+        padding: 8px 14px !important;
+        border-radius: 20px;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.15) !important;
+    }
+
+    #tab1:checked ~ .tabs-sidebar label[for="tab1"],
+    #tab2:checked ~ .tabs-sidebar label[for="tab2"],
+    #tab3:checked ~ .tabs-sidebar label[for="tab3"],
+    #tab4:checked ~ .tabs-sidebar label[for="tab4"],
+    #tab5:checked ~ .tabs-sidebar label[for="tab5"],
+    #tab6:checked ~ .tabs-sidebar label[for="tab6"] {
+        background: rgba(3, 221, 203, 0.2);
+        border-color: var(--neon-cyan) !important;
+        color: #fff;
+    }
+
+    .tabs-content-area {
+        width: 100% !important;
+        padding: 25px 18px !important;
+        min-height: 340px;
+    }
+
+    .content-pane {
+        top: 25px;
+        left: 18px;
+        right: 18px;
+        bottom: 25px;
+        flex-direction: column;
+        gap: 20px;
+        overflow-y: auto;
+    }
+
+    .pane-text {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .pane-title {
+        font-size: 26px !important;
+    }
+
+    .pane-list {
+        font-size: 14px;
+    }
+
+    /* ==== TESTIMONIALES ==== */
+    .casos-section {
+        padding: 80px 15px 100px 15px;
+    }
+
+    .casos-header {
+        max-width: 100%;
+    }
+
+    .casos-title-bold {
+        font-size: 48px !important;
+    }
+
+    .casos-title-light {
+        font-size: 68px !important;
+    }
+
+    .casos-layout {
+        max-width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .perfil-card-outer {
+        width: 100% !important;
+        min-width: unset !important;
+    }
+
+    .casos-trainer-wrapper {
+        display: none; 
     }
 }
 
+/* ==== Pantallas muy pequeñas (≤ 480px) ==== */
 @media (max-width: 480px) {
 
-    /* Hero ajuste extra para pantallas muy pequeñas */
     .trainer-container {
-        height: 42vh;
-        max-height: 280px;
+        height: 44vh;
+        max-height: 290px;
     }
 
     .chat-card-container {
-        margin-top: 240px;
+        margin-top: 260px;
     }
 
     .title-bold-layer {
-        font-size: 42px;
+        font-size: 38px;
     }
 
     .title-light-layer {
-        font-size: 58px;
+        font-size: 54px;
     }
 
     .menu-title {
-        font-size: 24px;
+        font-size: 22px;
+    }
+
+    .casos-title-bold {
+        font-size: 38px !important;
+    }
+
+    .casos-title-light {
+        font-size: 52px !important;
     }
 
     .welcome-logo {
@@ -2312,3 +2498,4 @@ input[name="suplementos_tabs"] {
         height: 220px;
     }
 }
+
