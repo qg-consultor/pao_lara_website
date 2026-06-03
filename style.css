@@ -1364,7 +1364,7 @@ input[name="suplementos_tabs"] {
 /* Foto del paciente flotando POR ENCIMA del borde superior de la tarjeta */
 .perfil-photo-floating {
     position: absolute;
-    top: 0;               /* empieza arriba del outer wrapper */
+    top: 20px;            /* bajada 20px a petición del usuario */
     left: 22px;
     width: 115px;
     height: 158px;
@@ -1496,7 +1496,7 @@ input[name="suplementos_tabs"] {
 .perfil-brand-logo {
     height: 30px;
     object-fit: contain;
-    object-position: left;
+    object-position: center; /* Centrado dentro del espacio disponible */
     filter: brightness(1.2);
     opacity: 0.9;
 }
@@ -1515,7 +1515,7 @@ input[name="suplementos_tabs"] {
 
 .perfil-dato-label {
     font-family: 'DIN-Bold', sans-serif;
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.5px;
     color: var(--neon-cyan);
     text-transform: uppercase;
@@ -1523,7 +1523,7 @@ input[name="suplementos_tabs"] {
 
 .perfil-dato-value {
     font-family: 'DIN-Regular', sans-serif;
-    font-size: 13px;
+    font-size: 15px;
     color: var(--text-white);
 }
 
