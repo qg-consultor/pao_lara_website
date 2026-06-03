@@ -608,6 +608,112 @@ I                                <ul class="pane-list">
                 });
             });
 
+            // --- LÓGICA DE MULTIPLES CASOS DE ÉXITO ---
+            const casosData = [
+                {
+                    nombre: "Agustín Cruz Vázquez",
+                    edad: "35 años",
+                    genero: "Masculino",
+                    bio: `<p class="perfil-section-desc">Ingeniero en Sistemas, esposo y padre de familia. Durante años llevó una vida sedentaria debido a las exigencias de su trabajo, llegando a pesar <strong>110 kg</strong>.</p>
+                          <p class="perfil-section-desc" style="margin-top: 10px;">Decidió transformar su salud y comenzó un proceso de entrenamiento constante, demostrando disciplina, compromiso y perseverancia. Hoy ha logrado bajar a <strong>87 kg</strong>, perdiendo <strong>23 kg</strong> y mejorando significativamente su condición física y calidad de vida.</p>`,
+                    proceso: `<div class="perfil-timeline-item" data-week="Sem 1">
+                                <div class="timeline-item-title">Evaluación inicial</div>
+                                <div class="timeline-item-desc">Análisis de composición corporal: 110 kg, metabolismo lento, vida sedentaria y hábitos alimenticios deficientes.</div>
+                              </div>
+                              <div class="perfil-timeline-item" data-week="Sem 4">
+                                <div class="timeline-item-title">Ajuste de rutina</div>
+                                <div class="timeline-item-desc">Protocolo personalizado 4x semana en la Deportiva + nutrición basada en déficit calórico sostenible.</div>
+                              </div>
+                              <div class="perfil-timeline-item" data-week="Sem 8">
+                                <div class="timeline-item-title">Primeros resultados</div>
+                                <div class="timeline-item-desc">Pérdida de 10 kg, mejora en energía y resistencia cardiovascular. Hábitos del sueño estabilizados.</div>
+                              </div>
+                              <div class="perfil-timeline-item" data-week="Sem 20">
+                                <div class="timeline-item-title">Transformación total</div>
+                                <div class="timeline-item-desc">De 110 kg a 87 kg — 23 kg menos. Composición corporal transformada y estilo de vida redefinido.</div>
+                              </div>`,
+                    fotoAntes: "SECCIONES/TESTIMONIALES/Agustin_Cruz_Antes.png",
+                    fotoAntesAlt: "Agustín Cruz — Antes",
+                    fotoDespues: "SECCIONES/TESTIMONIALES/Agustin_Cruz_Después.png",
+                    fotoDespuesAlt: "Agustín Cruz — Después"
+                },
+                {
+                    nombre: "Alberto Serrano Rangel",
+                    edad: "65 años",
+                    genero: "Masculino",
+                    bio: `<p class="perfil-section-desc">Padre de familia, abuelo, pensionado y apasionado del deporte, Alberto dedicó parte de su vida al atletismo de fondo, participando en maratones alrededor del mundo. Mantenía un peso cercano a los 60 kg y comprendió la importancia de prepararse para una vejez activa y funcional.</p>
+                          <p class="perfil-section-desc" style="margin-top: 10px;">Su principal objetivo fue evitar la sarcopenia (pérdida de masa muscular asociada al envejecimiento) y conservar su independencia física para seguir disfrutando de su familia y de una vida plena.</p>`,
+                    proceso: `<div class="perfil-timeline-item" data-week="Sem 1">
+                                <div class="timeline-item-title">Evaluación inicial</div>
+                                <div class="timeline-item-desc">Evaluación para iniciar programa enfocado en fuerza y ganancia muscular para evitar la sarcopenia. Peso inicial: 60 kg.</div>
+                              </div>
+                              <div class="perfil-timeline-item" data-week="Logro">
+                                <div class="timeline-item-title">Transformación y fuerza</div>
+                                <div class="timeline-item-desc">Aumento a 75 kg, desarrollando más masa muscular, mejorando su condición física y fortaleciendo las bases para una vejez saludable, activa e independiente.</div>
+                              </div>`,
+                    fotoAntes: "SECCIONES/TESTIMONIALES/Alberto_Serrano_Antes.png",
+                    fotoAntesAlt: "Alberto Serrano — Antes",
+                    fotoDespues: "SECCIONES/TESTIMONIALES/Alberto_Serrano_Después.png",
+                    fotoDespuesAlt: "Alberto Serrano — Después"
+                }
+            ];
+
+            const casoDots = document.querySelectorAll('.caso-dot');
+            const datoNombre = document.getElementById('datoNombre');
+            const datoEdad = document.getElementById('datoEdad');
+            const datoGenero = document.getElementById('datoGenero');
+            const bioContent = document.getElementById('bioContent');
+            const procesoTimeline = document.getElementById('procesoTimeline');
+            const tabPaciente = document.getElementById('tabPaciente');
+            const tabProceso = document.getElementById('tabProceso');
+
+            casoDots.forEach((dot, index) => {
+                dot.addEventListener('click', function() {
+                    // Si el índice no existe en nuestros datos, ignorar (ej. botón 3)
+                    if (!casosData[index]) return;
+
+                    // Cambiar dot activo
+                    casoDots.forEach(d => d.classList.remove('is-active'));
+                    this.classList.add('is-active');
+
+                    const data = casosData[index];
+
+                    // Actualizar textos con fade sutil
+                    const infoContainers = [datoNombre, datoEdad, datoGenero, bioContent, procesoTimeline];
+                    infoContainers.forEach(el => {
+                        if (el) el.style.opacity = '0';
+                    });
+                    
+                    setTimeout(() => {
+                        if (datoNombre) datoNombre.textContent = data.nombre;
+                        if (datoEdad) datoEdad.textContent = data.edad;
+                        if (datoGenero) datoGenero.textContent = data.genero;
+                        if (bioContent) bioContent.innerHTML = data.bio;
+                        if (procesoTimeline) procesoTimeline.innerHTML = data.proceso;
+                        
+                        infoContainers.forEach(el => {
+                            if (el) el.style.opacity = '1';
+                        });
+                    }, 250);
+
+                    // Actualizar atributos data-photo de los botones de tab
+                    if (tabPaciente) {
+                        tabPaciente.setAttribute('data-photo', data.fotoAntes);
+                        tabPaciente.setAttribute('data-photo-alt', data.fotoAntesAlt);
+                    }
+                    if (tabProceso) {
+                        tabProceso.setAttribute('data-photo', data.fotoDespues);
+                        tabProceso.setAttribute('data-photo-alt', data.fotoDespuesAlt);
+                    }
+
+                    // Forzar el click en la tab activa actual para actualizar la foto en pantalla
+                    const activeTab = document.querySelector('.perfil-tab-btn.is-active');
+                    if (activeTab && activeTab.id !== 'tabContacto') {
+                        activeTab.click();
+                    }
+                });
+            });
+
             // --- CASOS DE ÉXITO: SCROLL REVEAL (Imagen de Pao) ---
             const casosTrainer = document.getElementById('casosTrainer');
             const casosSection = document.getElementById('casos-de-exito');

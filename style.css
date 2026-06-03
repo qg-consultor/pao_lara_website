@@ -1612,7 +1612,7 @@ input[name="suplementos_tabs"] {
     height: 16px;
     background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
     border-radius: 50%;
-    border: 2px solid #045779; 
+    border: 2px solid #0b8899; 
     font-size: 0;
     box-shadow: 0 0 8px rgba(3, 221, 203, 0.6);
 }
