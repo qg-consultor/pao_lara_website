@@ -733,17 +733,25 @@ I                                <ul class="pane-list">
             const chatInput = document.querySelector('.chat-input');
             const fakePlaceholder = document.querySelector('.fake-placeholder');
             const defaultPlaceholderHtml = 'Hola, ¿Cómo te sientes hoy? Elige una categoría, cuéntanos qué dudas tienes y empecemos con tu consulta de inmediato.<span class="blinking-cursor"></span>';
+            const onlyCursorHtml = '<span class="blinking-cursor"></span>';
             
             if (chatInput && fakePlaceholder) {
-                chatInput.addEventListener('input', function() {
-                    if (this.value.length > 0) {
-                        fakePlaceholder.innerHTML = this.value.replace(/\\n/g, '<br>') + '<span class="blinking-cursor"></span>';
+                const updatePlaceholder = () => {
+                    if (chatInput.value.length > 0) {
+                        fakePlaceholder.innerHTML = chatInput.value.replace(/\n/g, '<br>') + onlyCursorHtml;
+                        fakePlaceholder.classList.add('is-typing');
+                    } else if (document.activeElement === chatInput) {
+                        fakePlaceholder.innerHTML = onlyCursorHtml;
                         fakePlaceholder.classList.add('is-typing');
                     } else {
                         fakePlaceholder.innerHTML = defaultPlaceholderHtml;
                         fakePlaceholder.classList.remove('is-typing');
                     }
-                });
+                };
+
+                chatInput.addEventListener('input', updatePlaceholder);
+                chatInput.addEventListener('focus', updatePlaceholder);
+                chatInput.addEventListener('blur', updatePlaceholder);
             }
 
             // --- LÓGICA DE BOTONES DE CATEGORÍA (PILLS) ---
