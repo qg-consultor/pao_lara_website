@@ -1381,8 +1381,10 @@ input[name="suplementos_tabs"] {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top;
+    object-fit: cover;
+    object-position: top center;
     display: block;
+    transition: opacity 0.25s ease;
 }
 
 .perfil-photo-floating .perfil-photo-placeholder {
@@ -1526,9 +1528,9 @@ input[name="suplementos_tabs"] {
 
 .perfil-section-desc {
     font-family: 'DIN-Regular', sans-serif;
-    font-size: 13px;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.75);
+    font-size: 15px;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.82);
     margin: 0;
 }
 
@@ -1602,15 +1604,32 @@ input[name="suplementos_tabs"] {
     align-items: center;
     gap: 12px;
     font-family: 'DIN-Regular', sans-serif;
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.75);
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.82);
     padding-bottom: 14px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    text-decoration: none;
 }
 
 .perfil-contact-row:last-of-type {
     border-bottom: none;
     padding-bottom: 0;
+}
+
+/* Filas clickables (links) */
+.perfil-contact-link {
+    cursor: pointer;
+    transition: color 0.25s ease, transform 0.2s ease;
+}
+
+.perfil-contact-link:hover {
+    color: var(--neon-cyan);
+    transform: translateX(4px);
+}
+
+.perfil-contact-link:hover svg {
+    stroke: var(--neon-cyan);
+    opacity: 1;
 }
 
 .perfil-contact-row svg {
@@ -1619,6 +1638,7 @@ input[name="suplementos_tabs"] {
     flex-shrink: 0;
     stroke: var(--neon-cyan);
     opacity: 0.8;
+    transition: stroke 0.25s ease, opacity 0.25s ease;
 }
 
 .perfil-cta-btn {
