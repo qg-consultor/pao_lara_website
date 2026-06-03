@@ -1367,8 +1367,8 @@ input[name="suplementos_tabs"] {
     position: absolute;
     top: 20px;            /* revertido a 20px */
     left: 22px;
-    width: 145px;         /* aumentada en ancho */
-    height: 195px;        /* aumentada en alto */
+    width: 155px;         /* aumentada en ancho */
+    height: 210px;        /* aumentada en alto */
     border-radius: 16px;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.06);
@@ -1451,7 +1451,7 @@ input[name="suplementos_tabs"] {
 .perfil-card-header {
     display: flex;
     align-items: stretch;
-    padding: 18px 18px 16px 185px; /* ajustado para foto de 145px */
+    padding: 18px 18px 16px 195px; /* ajustado para foto de 155px */
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     min-height: 110px;
     transition: all 0.4s ease;
