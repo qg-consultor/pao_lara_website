@@ -17,26 +17,24 @@
         <div class="blob blob-4"></div>
     </div>
 
+    <!-- Pantalla de Carga / Bienvenida -->
+    <div id="welcome-overlay" class="welcome-overlay">
+        <div class="welcome-content">
+            <img src="LOGOS/Pao Lara 3.png" alt="Pao Lara" class="welcome-logo">
+            <h1 class="welcome-title">TRANSFORMA TU VIDA, DESCUBRE TU MEJOR VERSIÓN.</h1>
+            
+            <div class="spinner">
+                <div class="spinner1"></div>
+            </div>
+
+            <button id="enter-site-btn" class="welcome-enter-btn">
+                COMENZAR
+            </button>
+        </div>
+    </div>
+
     <!-- Contenedor Principal del Sitio -->
     <div class="site-wrapper">
-
-        <!-- Botones Flotantes Globales -->
-        <button id="audioToggle" class="floating-audio-btn" aria-label="Toggle Audio">
-            <svg id="audioIconOn" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" class="audio-wave"></path>
-            </svg>
-            <svg id="audioIconOff" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                <line x1="23" y1="1" x2="1" y2="23"></line>
-            </svg>
-        </button>
-
-        <button id="backToTop" class="back-to-top" aria-label="Volver arriba">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="18 15 12 9 6 15"></polyline>
-            </svg>
-        </button>
 
         <!-- Barra de Navegación Glassmorphic -->
         <header class="navbar-container" id="myHeader">
@@ -59,6 +57,24 @@
             </div>
             <audio id="ambientAudio" src="SECCIONES/HERO/It Starts Here.mp3" loop autoplay></audio>
         </header>
+
+        <!-- Botones Flotantes Globales -->
+        <button id="audioToggle" class="floating-audio-btn" aria-label="Toggle Audio">
+            <svg id="audioIconOn" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" class="audio-wave"></path>
+            </svg>
+            <svg id="audioIconOff" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <line x1="23" y1="1" x2="1" y2="23"></line>
+            </svg>
+        </button>
+
+        <button id="backToTop" class="back-to-top" aria-label="Volver arriba">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+        </button>
 
         <!-- Sección Principal (Hero) -->
         <main class="hero-section">
@@ -851,17 +867,22 @@ I                                <ul class="pane-list">
                     }
                 }
 
-                document.addEventListener('click', function initAudio() {
-                    initWebAudio();
-                    if (ambientAudio.paused) {
-                        ambientAudio.play().then(() => {
-                            audioToggle.classList.add('is-playing');
-                        }).catch(e => console.log('Autoplay bloqueado'));
-                        iconOn.style.display = 'block';
-                        iconOff.style.display = 'none';
-                    }
-                    document.removeEventListener('click', initAudio);
-                }, { once: true });
+                const welcomeOverlay = document.getElementById('welcome-overlay');
+                const enterSiteBtn = document.getElementById('enter-site-btn');
+
+                if (enterSiteBtn && welcomeOverlay) {
+                    enterSiteBtn.addEventListener('click', () => {
+                        welcomeOverlay.classList.add('hidden');
+                        initWebAudio();
+                        if (ambientAudio.paused) {
+                            ambientAudio.play().then(() => {
+                                audioToggle.classList.add('is-playing');
+                            }).catch(e => console.log('Autoplay bloqueado'));
+                            iconOn.style.display = 'block';
+                            iconOff.style.display = 'none';
+                        }
+                    });
+                }
 
                 audioToggle.addEventListener('click', (e) => {
                     e.stopPropagation(); // Evitar disparar initAudio

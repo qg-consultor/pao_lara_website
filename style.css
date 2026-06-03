@@ -56,6 +56,111 @@ body {
 }
 
 /* ==========================================
+   PANTALLA DE BIENVENIDA (LOADING OVERLAY)
+   ========================================== */
+.welcome-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(7, 4, 21, 0.65);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.welcome-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.welcome-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 35px;
+}
+
+.welcome-logo {
+    height: 120px;
+    max-width: 80vw;
+    object-fit: contain;
+    filter: drop-shadow(0 0 15px rgba(3, 221, 203, 0.6));
+    animation: welcome-logo-glow 3s infinite alternate ease-in-out;
+}
+
+@keyframes welcome-logo-glow {
+    0% { filter: drop-shadow(0 0 15px rgba(3, 221, 203, 0.4)); transform: scale(1); }
+    100% { filter: drop-shadow(0 0 35px rgba(177, 60, 253, 0.8)); transform: scale(1.05); }
+}
+
+.welcome-title {
+    font-family: 'DIN-Regular', sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    padding: 0 20px;
+    line-height: 1.5;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.welcome-enter-btn {
+    padding: 16px 45px;
+    background: transparent;
+    border: 2px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    font-family: 'DIN-Bold', sans-serif;
+    font-size: 16px;
+    letter-spacing: 4px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(3, 221, 203, 0.3), inset 0 0 10px rgba(3, 221, 203, 0.1);
+    margin-top: 10px;
+}
+
+.welcome-enter-btn:hover {
+    background: var(--neon-cyan);
+    color: var(--bg-dark);
+    box-shadow: 0 0 35px rgba(3, 221, 203, 0.8);
+    transform: translateY(-3px) scale(1.05);
+}
+
+/* Spinner (Carga) */
+.spinner {
+  background-image: linear-gradient(rgb(186, 66, 255) 35%,rgb(0, 225, 255));
+  width: 90px;
+  height: 90px;
+  animation: spinning82341 1.7s linear infinite;
+  text-align: center;
+  border-radius: 50%;
+  filter: blur(1px);
+  box-shadow: 0px -5px 20px 0px rgba(186, 66, 255, 0.7), 0px 5px 20px 0px rgba(0, 225, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner1 {
+  background-color: var(--bg-dark);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  filter: blur(10px);
+}
+
+@keyframes spinning82341 {
+  to { transform: rotate(360deg); }
+}
+
+/* ==========================================
    FONDO DINÁMICO: AURORA GRADIENTS (MOVIMIENTO CONTINUO)
    ========================================== */
 .aurora-bg {
@@ -1099,6 +1204,14 @@ body {
 }
 .navbar-container.menu-open #openmenu span:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Ocultar botones flotantes cuando el menú está abierto */
+.navbar-container.menu-open ~ .floating-audio-btn,
+.navbar-container.menu-open ~ .back-to-top {
+    opacity: 0 !important;
+    visibility: hidden;
+    pointer-events: none !important;
 }
 
 /* ==========================================
