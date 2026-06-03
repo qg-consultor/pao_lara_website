@@ -1614,7 +1614,7 @@ input[name="suplementos_tabs"] {
 
 .timeline-item-title {
     font-family: 'DIN-Bold', sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     color: var(--text-white);
     margin-bottom: 3px;
     letter-spacing: 0.5px;
@@ -1622,7 +1622,7 @@ input[name="suplementos_tabs"] {
 
 .timeline-item-desc {
     font-family: 'DIN-Regular', sans-serif;
-    font-size: 11.5px;
+    font-size: 13.5px;
     color: rgba(255, 255, 255, 0.6);
     line-height: 1.5;
 }
