@@ -1356,8 +1356,8 @@ input[name="suplementos_tabs"] {
    ========================================== */
 .perfil-card-outer {
     position: relative;
-    width: 500px;
-    min-width: 500px;
+    width: 530px;
+    min-width: 530px;
     flex-shrink: 0;
     padding-top: 80px; /* espacio para que la foto flote encima */
 }
