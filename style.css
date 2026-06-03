@@ -1314,7 +1314,7 @@ input[name="suplementos_tabs"] {
     max-width: 950px;
     display: flex;
     flex-direction: column;
-    margin-bottom: 70px;
+    margin-bottom: 30px; /* reducido de 70px para subir el contenido */
     position: relative;
     z-index: 2;
 }
@@ -1505,13 +1505,13 @@ input[name="suplementos_tabs"] {
 .perfil-datos {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 12px; /* aumentado de 5px para más leading */
 }
 
 .perfil-dato-row {
     display: flex;
     flex-direction: column;
-    gap: 1px;
+    gap: 5px; /* aumentado de 1px para más espacio entre label y value */
 }
 
 .perfil-dato-label {
@@ -1759,7 +1759,7 @@ input[name="suplementos_tabs"] {
     justify-content: center;
     align-items: flex-end;
     padding-left: 0;
-    margin-left: -30px; /* solapamiento sutil con la tarjeta */
+    margin-left: 30px; /* cambiado de -30px a 30px para empujarla a la derecha */
     position: relative;
     /* Estado inicial: invisible y desplazada a la derecha */
     opacity: 0;
