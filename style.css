@@ -1359,13 +1359,13 @@ input[name="suplementos_tabs"] {
     width: 500px;
     min-width: 500px;
     flex-shrink: 0;
-    padding-top: 60px; /* espacio para que la foto flote encima */
+    padding-top: 80px; /* espacio para que la foto flote encima */
 }
 
 /* Foto del paciente flotando POR ENCIMA del borde superior de la tarjeta */
 .perfil-photo-floating {
     position: absolute;
-    top: 70px;            /* bajada más a petición del usuario */
+    top: 90px;            /* bajada más a petición del usuario */
     left: 22px;
     width: 145px;         /* aumentada en ancho */
     height: 195px;        /* aumentada en alto */
@@ -1451,7 +1451,7 @@ input[name="suplementos_tabs"] {
 .perfil-card-header {
     display: flex;
     align-items: stretch;
-    padding: 18px 18px 16px 185px; /* 145px foto + 22px left + 18px gap */
+    padding: 18px 18px 16px 215px; /* aumentado para separar más el texto de la foto */
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     min-height: 110px;
     transition: all 0.4s ease;
