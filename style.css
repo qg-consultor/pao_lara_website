@@ -1291,3 +1291,507 @@ input[name="suplementos_tabs"] {
         font-size: 12px;
     }
 }
+
+/* ==========================================
+   SECCIÓN: CASOS DE ÉXITO (TESTIMONIALES)
+   ========================================== */
+
+.casos-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 100px 40px 120px 40px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Título */
+.casos-header {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 70px;
+    position: relative;
+    z-index: 2;
+}
+
+.casos-title-bold {
+    font-family: 'Gotham-Bold', sans-serif;
+    font-size: 95px;
+    color: var(--text-white);
+    text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    text-align: left;
+    line-height: 0.9;
+}
+
+.casos-title-light {
+    font-family: 'DIN-Regular', sans-serif;
+    font-size: 135px;
+    color: var(--text-white);
+    text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    text-align: right;
+    line-height: 0.8;
+    letter-spacing: 5px;
+    margin-top: 5px;
+}
+
+/* Layout: Tarjeta + Imagen */
+.casos-layout {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: flex-end;
+    gap: 0;
+    position: relative;
+}
+
+/* ==========================================
+   TARJETA DE PERFIL (CARD)
+   ========================================== */
+.perfil-card {
+    width: 360px;
+    min-width: 340px;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(35px);
+    -webkit-backdrop-filter: blur(35px);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 24px;
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.5),
+        inset 0 0 20px rgba(255, 255, 255, 0.04);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    position: relative;
+    z-index: 5;
+}
+
+/* Borde gradiente en la card */
+.perfil-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(3, 221, 203, 0.5), rgba(177, 60, 253, 0.5));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* Header de la tarjeta */
+.perfil-card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 22px 22px 18px 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.4s ease;
+}
+
+/* Foto del paciente */
+.perfil-photo-wrapper {
+    position: relative;
+    width: 90px;
+    height: 110px;
+    flex-shrink: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.perfil-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.perfil-photo-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Gotham-Bold', sans-serif;
+    font-size: 36px;
+    background: linear-gradient(135deg, rgba(3, 221, 203, 0.3), rgba(177, 60, 253, 0.3));
+    color: rgba(255,255,255,0.5);
+    pointer-events: none;
+}
+
+.perfil-photo-wrapper:not(.no-photo) .perfil-photo-placeholder {
+    display: none;
+}
+
+/* Info del header */
+.perfil-info-header {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.perfil-brand-logo {
+    height: 30px;
+    object-fit: contain;
+    object-position: left;
+    filter: brightness(1.2);
+    opacity: 0.9;
+}
+
+.perfil-datos {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.perfil-dato-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.perfil-dato-label {
+    font-family: 'DIN-Bold', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    color: var(--neon-cyan);
+    text-transform: uppercase;
+}
+
+.perfil-dato-value {
+    font-family: 'DIN-Regular', sans-serif;
+    font-size: 13px;
+    color: var(--text-white);
+}
+
+/* Cuerpo de la tarjeta */
+.perfil-card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Secciones de contenido */
+.perfil-section {
+    display: none;
+    padding: 20px 22px;
+    flex: 1;
+    animation: fadeUpIn 0.45s cubic-bezier(0.25, 1, 0.5, 1) both;
+}
+
+.perfil-section.is-active {
+    display: block;
+}
+
+@keyframes fadeUpIn {
+    0%   { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.perfil-section-subtitle {
+    font-family: 'DIN-Bold', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--neon-cyan);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.perfil-section-desc {
+    font-family: 'DIN-Regular', sans-serif;
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0;
+}
+
+/* ---- TIMELINE (Proceso) ---- */
+.perfil-timeline {
+    position: relative;
+    padding-left: 8px;
+}
+
+.perfil-timeline::before {
+    content: '';
+    position: absolute;
+    left: 18px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--neon-cyan), var(--neon-purple));
+    border-radius: 2px;
+}
+
+.perfil-timeline-item {
+    position: relative;
+    padding-left: 38px;
+    padding-bottom: 18px;
+    z-index: 1;
+}
+
+.perfil-timeline-item:last-child {
+    padding-bottom: 4px;
+}
+
+.perfil-timeline-item::after {
+    content: attr(data-week);
+    position: absolute;
+    left: 10px;
+    top: 2px;
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+    border-radius: 50%;
+    border: 2px solid rgba(7, 4, 21, 0.8);
+    font-size: 0;
+    box-shadow: 0 0 8px rgba(3, 221, 203, 0.6);
+}
+
+.timeline-item-title {
+    font-family: 'DIN-Bold', sans-serif;
+    font-size: 12px;
+    color: var(--text-white);
+    margin-bottom: 3px;
+    letter-spacing: 0.5px;
+}
+
+.timeline-item-desc {
+    font-family: 'DIN-Regular', sans-serif;
+    font-size: 11.5px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.5;
+}
+
+/* ---- CONTACTO ---- */
+.perfil-contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 6px;
+}
+
+.perfil-contact-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'DIN-Regular', sans-serif;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.75);
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.perfil-contact-row:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.perfil-contact-row svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    stroke: var(--neon-cyan);
+    opacity: 0.8;
+}
+
+.perfil-cta-btn {
+    margin-top: 10px;
+    padding: 13px 20px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(90deg, var(--neon-cyan) 0%, var(--neon-purple) 100%);
+    color: var(--text-white);
+    font-family: 'DIN-Bold', sans-serif;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(177, 60, 253, 0.4);
+}
+
+.perfil-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(3, 221, 203, 0.5);
+}
+
+/* ---- BARRA DE TABS ---- */
+.perfil-tabs-nav {
+    display: flex;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.15);
+    margin-top: auto;
+    position: sticky;
+    bottom: 0;
+}
+
+.perfil-tab-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    border-top: 2px solid transparent;
+    padding: 14px 5px;
+    font-family: 'DIN-Regular', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1.2px;
+    color: rgba(255, 255, 255, 0.45);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.perfil-tab-btn:hover {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.perfil-tab-btn.is-active {
+    color: var(--neon-cyan);
+    border-top-color: var(--neon-cyan);
+    background: linear-gradient(
+        to bottom,
+        rgba(3, 221, 203, 0.08) 0%,
+        transparent 100%
+    );
+    text-shadow: 0 0 10px rgba(3, 221, 203, 0.5);
+}
+
+/* ==========================================
+   IMAGEN DE PAO LARA (SCROLL-REVEAL)
+   ========================================== */
+.casos-trainer-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-left: 20px;
+    position: relative;
+    /* Estado inicial: invisible y desplazada a la derecha */
+    opacity: 0;
+    transform: translateX(120px) scale(0.97);
+    transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.casos-trainer-wrapper.in-view {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+}
+
+.casos-trainer-img {
+    height: 680px;
+    width: auto;
+    object-fit: contain;
+    object-position: bottom;
+    filter: drop-shadow(-20px 10px 40px rgba(0, 0, 0, 0.6)) contrast(1.05);
+}
+
+/* ==========================================
+   INDICADORES DE CASOS (DOTS)
+   ========================================== */
+.casos-nav-dots {
+    display: flex;
+    gap: 10px;
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.caso-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.caso-dot.is-active {
+    width: 28px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+    box-shadow: 0 0 8px rgba(3, 221, 203, 0.5);
+}
+
+.caso-dot:hover:not(.is-active) {
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(1.2);
+}
+
+/* ==========================================
+   ESTADO COMPACTO DE LA CARD (tabs no-BIO)
+   ========================================== */
+.perfil-card.is-compact .perfil-card-header {
+    padding: 14px 22px 12px 22px;
+}
+
+.perfil-card.is-compact .perfil-photo-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.perfil-card.is-compact .perfil-brand-logo {
+    height: 22px;
+}
+
+/* Responsive Casos */
+@media (max-width: 900px) {
+    .casos-layout {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .perfil-card {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .casos-trainer-wrapper {
+        justify-content: center;
+        padding-left: 0;
+    }
+
+    .casos-trainer-img {
+        height: 420px;
+    }
+
+    .casos-title-bold {
+        font-size: 60px;
+    }
+
+    .casos-title-light {
+        font-size: 85px;
+    }
+}
+
+@media (max-width: 600px) {
+    .casos-section {
+        padding: 80px 20px 80px 20px;
+    }
+
+    .casos-title-bold {
+        font-size: 48px;
+    }
+
+    .casos-title-light {
+        font-size: 68px;
+    }
+
+    .casos-trainer-img {
+        height: 320px;
+    }
+}
+
