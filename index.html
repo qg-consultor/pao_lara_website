@@ -811,7 +811,7 @@ I                                <ul class="pane-list">
             const iconOff = document.getElementById('audioIconOff');
             
             if (ambientAudio && audioToggle) {
-                ambientAudio.volume = 0.5;
+                ambientAudio.volume = 0.2;
 
                 let audioCtx;
                 let isAudioInitialized = false;
@@ -832,10 +832,10 @@ I                                <ul class="pane-list">
 
                     // Eco/Reverb suave
                     const delay = audioCtx.createDelay();
-                    delay.delayTime.value = 0.25;
+                    delay.delayTime.value = 0.12;
 
                     const feedback = audioCtx.createGain();
-                    feedback.gain.value = 0.3;
+                    feedback.gain.value = 0.15;
 
                     delay.connect(feedback);
                     feedback.connect(delay);
