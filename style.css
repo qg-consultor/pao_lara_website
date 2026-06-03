@@ -1518,7 +1518,7 @@ input[name="suplementos_tabs"] {
     font-family: 'DIN-Bold', sans-serif;
     font-size: 12px;
     letter-spacing: 0.5px;
-    color: #df69f2; 
+    color: #b33bff; 
     text-transform: uppercase;
 }
 
@@ -1555,9 +1555,9 @@ input[name="suplementos_tabs"] {
 
 .perfil-section-subtitle {
     font-family: 'DIN-Bold', sans-serif;
-    font-size: 10px;
+    font-size: 13px;
     letter-spacing: 2px;
-    color: #df69f2; 
+    color: #b33bff; 
     text-transform: uppercase;
     margin-bottom: 10px;
 }
