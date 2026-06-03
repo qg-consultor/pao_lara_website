@@ -2049,107 +2049,266 @@ input[name="suplementos_tabs"] {
 }
 
 /* ==========================================
-   RESPONSIVE DESIGN (GLOBAL / MOBILE)
+   RESPONSIVE DESIGN (GLOBAL / MOBILE FIRST)
    ========================================== */
+
 @media (max-width: 900px) {
-    /* Navbar Móvil */
+
+    /* ==== NAVBAR ==== */
     .nav-links {
         display: none !important;
     }
-    
+
     .navbar-container.menu-open .nav-links {
         display: flex !important;
     }
-    
+
     #openmenu {
         opacity: 1 !important;
         pointer-events: auto !important;
         position: relative !important;
         right: auto !important;
         top: auto !important;
-        display: block;
     }
-    
+
     .navbar-container {
-        padding: 15px 20px !important;
-        justify-content: space-between;
+        padding: 12px 15px !important;
     }
 
     .navbar {
         width: 100% !important;
         max-width: 100% !important;
         justify-content: space-between !important;
-        padding: 10px 20px !important;
+        padding: 10px 18px !important;
         border-radius: 30px !important;
     }
-    
+
     .navbar::after {
         border-radius: 30px !important;
     }
 
     .nav-logo {
-        height: 35px;
+        height: 30px;
     }
-    
+
+    /* Sticky colapsa a la misma pill ancha, no al círculo */
+    .navbar-container.sticky {
+        padding: 12px 15px !important;
+    }
+
     .navbar-container.sticky .navbar {
         width: 100% !important;
         max-width: 100% !important;
+        border-radius: 30px !important;
     }
 
-    /* Hero & Chat Card Móvil */
+    /* ==== HERO SECTION ==== */
     .hero-section {
-        padding: 100px 15px 40px 15px;
+        padding-top: 90px;
+        padding-bottom: 40px;
+        padding-left: 15px;
+        padding-right: 15px;
         min-height: auto;
+        overflow: hidden;
     }
-    
+
+    /* Logo decorativo detrás — escalar para no salirse */
+    .hero-bg-logo-container {
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .hero-bg-logo {
+        width: 100%;
+    }
+
+    /* Entrenadora — reducida para no dominar todo */
+    .trainer-container {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 50vh;
+        max-height: 360px;
+        margin-top: 80px;
+    }
+
     .trainer-img {
-        max-height: 55vh;
+        height: 100%;
         width: auto;
+    }
+
+    /* Chat Card — ocupa todo el ancho */
+    .chat-card-container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        margin-top: 300px;
+        transform: none;
+        z-index: 10;
     }
 
     .chat-card {
         margin: 0;
-        padding: 20px 15px;
-        width: 100%;
+        padding: 22px 18px;
+        border-radius: 24px;
     }
-    
+
     .fake-placeholder {
         font-size: 15px;
-        min-height: 70px;
+        min-height: 80px;
     }
-    
+
     .chat-input {
         font-size: 15px;
     }
 
-    /* Píldoras Slider Móvil */
+    /* Sociales y botones de acción */
+    .chat-controls {
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+    }
+
+    /* ==== PÍLDORAS SLIDER ==== */
     .category-pills {
         flex-wrap: nowrap !important;
         overflow-x: auto;
+        overflow-y: hidden;
         justify-content: flex-start;
-        padding-bottom: 12px; /* Espacio para la barra */
-        gap: 12px;
+        padding-bottom: 14px;
+        gap: 10px;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: thin;
-        scrollbar-color: var(--neon-cyan) rgba(255, 255, 255, 0.05);
-    }
-    
-    .pill-btn {
-        flex: 0 0 auto; /* Evita que las cápsulas se aplasten */
+        scrollbar-color: var(--neon-cyan) rgba(255,255,255,0.05);
     }
 
-    /* Custom Scrollbar (Navbar de opciones deslizable) */
+    .pill-btn {
+        flex: 0 0 auto;
+    }
+
     .category-pills::-webkit-scrollbar {
         height: 4px;
     }
     .category-pills::-webkit-scrollbar-track {
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(255,255,255,0.1);
         border-radius: 4px;
-        margin: 0 10px;
     }
     .category-pills::-webkit-scrollbar-thumb {
-        background: var(--neon-cyan);
+        background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
         border-radius: 4px;
+    }
+
+    /* ==== ABOUT SECTION ==== */
+    .about-section {
+        padding: 80px 20px 60px 20px;
+        min-height: auto;
+    }
+
+    .about-wrapper {
+        margin-left: 0;
+        max-width: 100%;
+        align-items: center;
+    }
+
+    .title-bold-layer {
+        font-size: 52px;
+        text-align: center;
+    }
+
+    .title-light-layer {
+        font-size: 70px;
+        text-align: center;
+        letter-spacing: 2px;
+    }
+
+    /* La foto del salto queda oculta en móvil para no romper el layout */
+    .image-layer {
+        display: none;
+    }
+
+    .video-layer {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        transform: none;
+        opacity: 1;
+    }
+
+    .about-section.in-view .video-layer {
+        transform: none;
+    }
+
+    /* ==== SERVICIOS ==== */
+    .services-section {
+        padding: 80px 20px 100px 20px;
+        min-height: auto;
+    }
+
+    .services-header .title-bold-layer,
+    .services-header .title-light-layer {
+        font-size: 52px;
+        text-align: left;
+    }
+
+    .services-header .title-light-layer {
+        font-size: 70px;
+        text-align: right;
+    }
+
+    .menu-title {
+        font-size: 30px;
+    }
+
+    .interactive-menu a {
+        padding: 22px 0;
+    }
+
+    /* ==== FLOATING BUTTONS ==== */
+    .floating-audio-btn {
+        top: 20px;
+        right: 15px;
+    }
+
+    .back-to-top {
+        right: 15px;
+        bottom: 20px;
     }
 }
 
+@media (max-width: 480px) {
+
+    /* Hero ajuste extra para pantallas muy pequeñas */
+    .trainer-container {
+        height: 42vh;
+        max-height: 280px;
+    }
+
+    .chat-card-container {
+        margin-top: 240px;
+    }
+
+    .title-bold-layer {
+        font-size: 42px;
+    }
+
+    .title-light-layer {
+        font-size: 58px;
+    }
+
+    .menu-title {
+        font-size: 24px;
+    }
+
+    .welcome-logo {
+        width: 220px;
+        height: 220px;
+    }
+
+    .spinner-behind {
+        width: 220px;
+        height: 220px;
+    }
+}
