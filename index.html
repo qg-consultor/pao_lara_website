@@ -328,97 +328,108 @@ I                                <ul class="pane-list">
             <!-- Layout Principal: Tarjeta + Pao Lara -->
             <div class="casos-layout">
 
-                <!-- Tarjeta de Perfil con Tabs -->
-                <div class="perfil-card" id="perfilCard" data-state="#paciente">
+                <!-- Wrapper exterior: foto flotante + tarjeta -->
+                <div class="perfil-card-outer">
 
-                    <!-- Header de la Tarjeta -->
-                    <div class="perfil-card-header">
-                        <!-- Foto del paciente (antes) -->
-                        <div class="perfil-photo-wrapper">
-                            <img src="SECCIONES/TESTIMONIALES/placeholder_paciente.png" alt="Paciente" class="perfil-photo" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo');">
-                            <div class="perfil-photo-placeholder">
-                                <span>A</span>
-                            </div>
-                        </div>
-                        <!-- Info -->
-                        <div class="perfil-info-header">
-                            <img src="LOGOS/Pao Lara 2.png" alt="Pao Lara" class="perfil-brand-logo">
-                            <div class="perfil-datos">
-                                <div class="perfil-dato-row">
-                                    <span class="perfil-dato-label">Nombre:</span>
-                                    <span class="perfil-dato-value">Andrea Pérez</span>
-                                </div>
-                                <div class="perfil-dato-row">
-                                    <span class="perfil-dato-label">Edad:</span>
-                                    <span class="perfil-dato-value">32 años</span>
-                                </div>
-                                <div class="perfil-dato-row">
-                                    <span class="perfil-dato-label">Género:</span>
-                                    <span class="perfil-dato-value">Femenino</span>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- Foto del paciente flotando ENCIMA de la tarjeta -->
+                    <div class="perfil-photo-floating">
+                        <img src="SECCIONES/TESTIMONIALES/placeholder_paciente.png" alt="Paciente" class="perfil-photo" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo');">
+                        <div class="perfil-photo-placeholder"><span>A</span></div>
                     </div>
 
-                    <!-- Cuerpo de la Tarjeta (Secciones) -->
-                    <div class="perfil-card-body">
+                    <!-- Tarjeta de Perfil con Tabs -->
+                    <div class="perfil-card" id="perfilCard" data-state="#paciente">
 
-                        <!-- Sección: Paciente (BIO) -->
-                        <div class="perfil-section is-active" id="paciente">
-                            <div class="perfil-section-subtitle">BIO</div>
-                            <p class="perfil-section-desc">Andrea es orgullosa madre de dos niños pequeños y cabeza de familia. Buscaba un balance entre el tiempo disponible de sus actividades y el ejercicio, además de tener problemas hormonales e inflamación constante.</p>
-                        </div>
-
-                        <!-- Sección: Proceso -->
-                        <div class="perfil-section" id="proceso">
-                            <div class="perfil-section-subtitle">PROCESO</div>
-                            <div class="perfil-timeline">
-                                <div class="perfil-timeline-item" data-week="Sem 1">
-                                    <div class="timeline-item-title">Evaluación inicial</div>
-                                    <div class="timeline-item-desc">Análisis completo de composición corporal, historial hormonal y hábitos alimenticios.</div>
-                                </div>
-                                <div class="perfil-timeline-item" data-week="Sem 4">
-                                    <div class="timeline-item-title">Ajuste de rutina</div>
-                                    <div class="timeline-item-desc">Protocolo personalizado de entrenamiento 3x semana + nutrición anti-inflamatoria.</div>
-                                </div>
-                                <div class="perfil-timeline-item" data-week="Sem 8">
-                                    <div class="timeline-item-title">Resultados visibles</div>
-                                    <div class="timeline-item-desc">Reducción de 6kg, mejora hormonal confirmada y energía sostenida durante el día.</div>
-                                </div>
-                                <div class="perfil-timeline-item" data-week="Sem 12">
-                                    <div class="timeline-item-title">Mantenimiento</div>
-                                    <div class="timeline-item-desc">Estilo de vida adoptado. Hábitos saludables integrados en su rutina diaria familiar.</div>
+                        <!-- Header de la Tarjeta (solo info, foto está flotando encima) -->
+                        <div class="perfil-card-header">
+                            <div class="perfil-info-header">
+                                <img src="LOGOS/Pao Lara 2.png" alt="Pao Lara" class="perfil-brand-logo">
+                                <div class="perfil-datos">
+                                    <div class="perfil-dato-row">
+                                        <span class="perfil-dato-label">Nombre:</span>
+                                        <span class="perfil-dato-value">Andrea Pérez</span>
+                                    </div>
+                                    <div class="perfil-dato-row">
+                                        <span class="perfil-dato-label">Edad:</span>
+                                        <span class="perfil-dato-value">32 años</span>
+                                    </div>
+                                    <div class="perfil-dato-row">
+                                        <span class="perfil-dato-label">Género:</span>
+                                        <span class="perfil-dato-value">Femenino</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Sección: Contacto -->
-                        <div class="perfil-section" id="contacto-caso">
-                            <div class="perfil-section-subtitle">¿LISTA PARA TU CAMBIO?</div>
-                            <div class="perfil-contact-info">
-                                <div class="perfil-contact-row">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" /></svg>
-                                    WhatsApp: +52 (442) 000-0000
-                                </div>
-                                <div class="perfil-contact-row">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
-                                    contacto@paolara.com
-                                </div>
-                                <div class="perfil-contact-row">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                                    @paolarafit
-                                </div>
-                                <button class="perfil-cta-btn" id="perfilCtaBtn">AGENDA TU CONSULTA</button>
+                        <!-- Cuerpo de la Tarjeta (Secciones) -->
+                        <div class="perfil-card-body">
+
+                            <!-- Sección: Paciente (BIO) -->
+                            <div class="perfil-section is-active" id="paciente">
+                                <div class="perfil-section-subtitle">BIO</div>
+                                <p class="perfil-section-desc">Andrea es orgullosa madre de dos niños pequeños y cabeza de familia. Buscaba un balance entre el tiempo disponible de sus actividades y el ejercicio, además de tener problemas hormonales e inflamación constante.</p>
                             </div>
-                        </div>
 
-                        <!-- Botones de Tabs -->
-                        <div class="perfil-tabs-nav">
-                            <button class="perfil-tab-btn is-active" data-section="#paciente" id="tabPaciente">PACIENTE</button>
-                            <button class="perfil-tab-btn" data-section="#proceso" id="tabProceso">PROCESO</button>
-                            <button class="perfil-tab-btn" data-section="#contacto-caso" id="tabContacto">CONTACTO</button>
-                        </div>
+                            <!-- Sección: Proceso -->
+                            <div class="perfil-section" id="proceso">
+                                <div class="perfil-section-subtitle">PROCESO</div>
+                                <div class="perfil-timeline">
+                                    <div class="perfil-timeline-item" data-week="Sem 1">
+                                        <div class="timeline-item-title">Evaluación inicial</div>
+                                        <div class="timeline-item-desc">Análisis completo de composición corporal, historial hormonal y hábitos alimenticios.</div>
+                                    </div>
+                                    <div class="perfil-timeline-item" data-week="Sem 4">
+                                        <div class="timeline-item-title">Ajuste de rutina</div>
+                                        <div class="timeline-item-desc">Protocolo personalizado de entrenamiento 3x semana + nutrición anti-inflamatoria.</div>
+                                    </div>
+                                    <div class="perfil-timeline-item" data-week="Sem 8">
+                                        <div class="timeline-item-title">Resultados visibles</div>
+                                        <div class="timeline-item-desc">Reducción de 6kg, mejora hormonal confirmada y energía sostenida durante el día.</div>
+                                    </div>
+                                    <div class="perfil-timeline-item" data-week="Sem 12">
+                                        <div class="timeline-item-title">Mantenimiento</div>
+                                        <div class="timeline-item-desc">Estilo de vida adoptado. Hábitos saludables integrados en su rutina diaria familiar.</div>
+                                    </div>
+                                </div>
+                            </div>
 
+                            <!-- Sección: Contacto -->
+                            <div class="perfil-section" id="contacto-caso">
+                                <div class="perfil-section-subtitle">¿LISTA PARA TU CAMBIO?</div>
+                                <div class="perfil-contact-info">
+                                    <div class="perfil-contact-row">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" /></svg>
+                                        WhatsApp: +52 (442) 000-0000
+                                    </div>
+                                    <div class="perfil-contact-row">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+                                        contacto@paolara.com
+                                    </div>
+                                    <div class="perfil-contact-row">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                                        @paolarafit
+                                    </div>
+                                    <button class="perfil-cta-btn" id="perfilCtaBtn">AGENDA TU CONSULTA</button>
+                                </div>
+                            </div>
+
+                            <!-- Navegación inferior: Dots de casos + Tabs de sección -->
+                            <div class="perfil-bottom-nav">
+                                <!-- Dots: seleccionan el CASO -->
+                                <div class="perfil-casos-dots">
+                                    <button class="caso-dot is-active" aria-label="Caso 1"></button>
+                                    <button class="caso-dot" aria-label="Caso 2"></button>
+                                    <button class="caso-dot" aria-label="Caso 3"></button>
+                                </div>
+                                <!-- Tabs: seleccionan la SECCIÓN dentro del caso -->
+                                <div class="perfil-tabs-nav">
+                                    <button class="perfil-tab-btn is-active" data-section="#paciente" id="tabPaciente">PACIENTE</button>
+                                    <button class="perfil-tab-btn" data-section="#proceso" id="tabProceso">PROCESO</button>
+                                    <button class="perfil-tab-btn" data-section="#contacto-caso" id="tabContacto">CONTACTO</button>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
 
@@ -427,13 +438,6 @@ I                                <ul class="pane-list">
                     <img src="SECCIONES/TESTIMONIALES/Pao_Lara_Frente_Sonrisa.png" alt="Pao Lara Personal Trainer" class="casos-trainer-img">
                 </div>
 
-            </div>
-
-            <!-- Indicadores de Navegación de Casos -->
-            <div class="casos-nav-dots">
-                <button class="caso-dot is-active" aria-label="Caso 1"></button>
-                <button class="caso-dot" aria-label="Caso 2"></button>
-                <button class="caso-dot" aria-label="Caso 3"></button>
             </div>
 
         </section>

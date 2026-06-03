@@ -1308,10 +1308,10 @@ input[name="suplementos_tabs"] {
     overflow: hidden;
 }
 
-/* Título */
+/* Título — alineado al ancho del navbar (950px) */
 .casos-header {
     width: 100%;
-    max-width: 1200px;
+    max-width: 950px;
     display: flex;
     flex-direction: column;
     margin-bottom: 70px;
@@ -1342,7 +1342,7 @@ input[name="suplementos_tabs"] {
 /* Layout: Tarjeta + Imagen */
 .casos-layout {
     width: 100%;
-    max-width: 1200px;
+    max-width: 950px;
     display: flex;
     align-items: flex-end;
     gap: 0;
@@ -1350,12 +1350,63 @@ input[name="suplementos_tabs"] {
 }
 
 /* ==========================================
-   TARJETA DE PERFIL (CARD)
+   WRAPPER EXTERIOR (foto flotante + tarjeta)
    ========================================== */
-.perfil-card {
+.perfil-card-outer {
+    position: relative;
     width: 360px;
     min-width: 340px;
     flex-shrink: 0;
+    padding-top: 60px; /* espacio para que la foto flote encima */
+}
+
+/* Foto del paciente flotando POR ENCIMA del borde superior de la tarjeta */
+.perfil-photo-floating {
+    position: absolute;
+    top: 0;               /* empieza arriba del outer wrapper */
+    left: 22px;
+    width: 115px;
+    height: 158px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.55),
+        0 0 0 1px rgba(3, 221, 203, 0.2);
+    z-index: 10;          /* encima de la tarjeta */
+}
+
+.perfil-photo-floating .perfil-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+}
+
+.perfil-photo-floating .perfil-photo-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Gotham-Bold', sans-serif;
+    font-size: 42px;
+    background: linear-gradient(135deg, rgba(3, 221, 203, 0.3), rgba(177, 60, 253, 0.3));
+    color: rgba(255,255,255,0.5);
+}
+
+.perfil-photo-floating:not(.no-photo) .perfil-photo-placeholder {
+    display: none;
+}
+
+/* ==========================================
+   TARJETA DE PERFIL (CARD)
+   ========================================== */
+.perfil-card {
+    width: 100%;
+    min-height: 520px;
     background: rgba(255, 255, 255, 0.06);
     backdrop-filter: blur(35px);
     -webkit-backdrop-filter: blur(35px);
@@ -1386,50 +1437,15 @@ input[name="suplementos_tabs"] {
     pointer-events: none;
 }
 
-/* Header de la tarjeta */
+/* Header de la tarjeta:
+   la foto flota encima, así que dejamos padding-left para ocupar ese espacio */
 .perfil-card-header {
     display: flex;
     align-items: flex-start;
-    gap: 16px;
-    padding: 22px 22px 18px 22px;
+    padding: 18px 18px 16px 150px; /* 115px foto + 22px left + 13px gap */
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    min-height: 110px;
     transition: all 0.4s ease;
-}
-
-/* Foto del paciente */
-.perfil-photo-wrapper {
-    position: relative;
-    width: 90px;
-    height: 110px;
-    flex-shrink: 0;
-    border-radius: 14px;
-    overflow: hidden;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.perfil-photo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top;
-}
-
-.perfil-photo-placeholder {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Gotham-Bold', sans-serif;
-    font-size: 36px;
-    background: linear-gradient(135deg, rgba(3, 221, 203, 0.3), rgba(177, 60, 253, 0.3));
-    color: rgba(255,255,255,0.5);
-    pointer-events: none;
-}
-
-.perfil-photo-wrapper:not(.no-photo) .perfil-photo-placeholder {
-    display: none;
 }
 
 /* Info del header */
@@ -1626,14 +1642,26 @@ input[name="suplementos_tabs"] {
     box-shadow: 0 8px 28px rgba(3, 221, 203, 0.5);
 }
 
-/* ---- BARRA DE TABS ---- */
+/* ---- NAVEGACIÓN INFERIOR: dots + tabs juntos ---- */
+.perfil-bottom-nav {
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Fila de dots (selector de caso) */
+.perfil-casos-dots {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px 8px 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Fila de tabs (selector de sección) */
 .perfil-tabs-nav {
     display: flex;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
     background: rgba(0, 0, 0, 0.15);
-    margin-top: auto;
-    position: sticky;
-    bottom: 0;
 }
 
 .perfil-tab-btn {
@@ -1641,7 +1669,7 @@ input[name="suplementos_tabs"] {
     background: transparent;
     border: none;
     border-top: 2px solid transparent;
-    padding: 14px 5px;
+    padding: 13px 5px;
     font-family: 'DIN-Regular', sans-serif;
     font-size: 11px;
     letter-spacing: 1.2px;
@@ -1672,9 +1700,10 @@ input[name="suplementos_tabs"] {
 .casos-trainer-wrapper {
     flex: 1;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: flex-end;
-    padding-left: 20px;
+    padding-left: 0;
+    margin-left: -30px; /* solapamiento sutil con la tarjeta */
     position: relative;
     /* Estado inicial: invisible y desplazada a la derecha */
     opacity: 0;
@@ -1697,36 +1726,29 @@ input[name="suplementos_tabs"] {
 }
 
 /* ==========================================
-   INDICADORES DE CASOS (DOTS)
+   DOTS (usados en perfil-casos-dots dentro de la card)
    ========================================== */
-.casos-nav-dots {
-    display: flex;
-    gap: 10px;
-    margin-top: 50px;
-    justify-content: center;
-    align-items: center;
-}
-
 .caso-dot {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.2);
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
     padding: 0;
+    flex-shrink: 0;
 }
 
 .caso-dot.is-active {
-    width: 28px;
+    width: 22px;
     border-radius: 4px;
     background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
-    box-shadow: 0 0 8px rgba(3, 221, 203, 0.5);
+    box-shadow: 0 0 6px rgba(3, 221, 203, 0.5);
 }
 
 .caso-dot:hover:not(.is-active) {
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.45);
     transform: scale(1.2);
 }
 
@@ -1734,13 +1756,8 @@ input[name="suplementos_tabs"] {
    ESTADO COMPACTO DE LA CARD (tabs no-BIO)
    ========================================== */
 .perfil-card.is-compact .perfil-card-header {
-    padding: 14px 22px 12px 22px;
-}
-
-.perfil-card.is-compact .perfil-photo-wrapper {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
+    padding: 12px 18px 10px 150px;
+    min-height: 70px;
 }
 
 .perfil-card.is-compact .perfil-brand-logo {
@@ -1754,14 +1771,14 @@ input[name="suplementos_tabs"] {
         align-items: center;
     }
 
-    .perfil-card {
+    .perfil-card-outer {
         width: 100%;
         max-width: 400px;
     }
 
     .casos-trainer-wrapper {
         justify-content: center;
-        padding-left: 0;
+        margin-left: 0;
     }
 
     .casos-trainer-img {
