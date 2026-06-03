@@ -1480,8 +1480,9 @@ input[name="suplementos_tabs"] {
     width: 140px;
     height: auto;
     object-fit: contain;
-    filter: brightness(0) invert(1); /* lo vuelve blanco para que se vea sobre glassmorphism */
-    opacity: 0.92;
+    /* Efecto outer glow cyan y colores originales */
+    filter: drop-shadow(0 0 12px rgba(3, 221, 203, 0.7));
+    opacity: 1;
 }
 
 /* Info del header */
@@ -1806,17 +1807,6 @@ input[name="suplementos_tabs"] {
     transform: scale(1.2);
 }
 
-/* ==========================================
-   ESTADO COMPACTO DE LA CARD (tabs no-BIO)
-   ========================================== */
-.perfil-card.is-compact .perfil-card-header {
-    padding: 12px 18px 10px 150px;
-    min-height: 70px;
-}
-
-.perfil-card.is-compact .perfil-brand-logo {
-    height: 22px;
-}
 
 /* Responsive Casos */
 @media (max-width: 900px) {

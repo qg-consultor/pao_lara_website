@@ -562,13 +562,6 @@ I                                <ul class="pane-list">
                     const section = document.querySelector(targetSection);
                     const isContacto = targetSection === '#contacto-caso';
 
-                    // Compactar header en tabs no-BIO
-                    if (targetSection !== '#paciente') {
-                        perfilCard.classList.add('is-compact');
-                    } else {
-                        perfilCard.classList.remove('is-compact');
-                    }
-
                     perfilCard.setAttribute('data-state', targetSection);
 
                     // Limpiar activos y activar el correcto
