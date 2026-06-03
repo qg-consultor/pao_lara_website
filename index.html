@@ -343,9 +343,11 @@ I                                <ul class="pane-list">
                     <div class="perfil-card" id="perfilCard" data-state="#paciente">
 
                         <!-- Header de la Tarjeta -->
-                        <div class="perfil-card-header">
-                            <div class="perfil-info-header">
-                                <img src="LOGOS/Pao Lara 2.png" alt="Pao Lara" class="perfil-brand-logo">
+                        <div class="perfil-card-header" id="perfilCardHeader">
+
+                            <!-- MODO NORMAL: Logo + datos del paciente (PACIENTE y PROCESO) -->
+                            <div class="perfil-info-header" id="headerNormal">
+                                <img src="LOGOS/Pao Lara 3.png" alt="Pao Lara" class="perfil-brand-logo" id="perfilBrandLogo">
                                 <div class="perfil-datos">
                                     <div class="perfil-dato-row">
                                         <span class="perfil-dato-label">Nombre:</span>
@@ -361,6 +363,12 @@ I                                <ul class="pane-list">
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- MODO CONTACTO: Logo 2 centrado -->
+                            <div class="perfil-info-contacto" id="headerContacto">
+                                <img src="LOGOS/Pao Lara 2.png" alt="Pao Lara Personal Trainer" class="perfil-logo-contacto">
+                            </div>
+
                         </div>
 
                         <!-- Cuerpo de la Tarjeta -->
@@ -538,11 +546,13 @@ I                                <ul class="pane-list">
                 observer.observe(section);
             });
 
-            // --- CASOS DE ÉXITO: TABS + CAMBIO DE FOTO ---
+            // --- CASOS DE ÉXITO: TABS + CAMBIO DE FOTO + CAMBIO DE HEADER ---
             const tabBtns = document.querySelectorAll('.perfil-tab-btn');
             const perfilSections = document.querySelectorAll('.perfil-section');
             const perfilCard = document.getElementById('perfilCard');
             const perfilPhotoImg = document.getElementById('perfilPhotoImg');
+            const headerNormal = document.getElementById('headerNormal');
+            const headerContacto = document.getElementById('headerContacto');
 
             tabBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
@@ -550,6 +560,7 @@ I                                <ul class="pane-list">
                     const newPhoto = this.getAttribute('data-photo');
                     const newPhotoAlt = this.getAttribute('data-photo-alt') || '';
                     const section = document.querySelector(targetSection);
+                    const isContacto = targetSection === '#contacto-caso';
 
                     // Compactar header en tabs no-BIO
                     if (targetSection !== '#paciente') {
@@ -566,14 +577,38 @@ I                                <ul class="pane-list">
                     this.classList.add('is-active');
                     if (section) section.classList.add('is-active');
 
-                    // --- Cambio de foto con fade ---
+                    // --- Cambio de foto con fade + posición ---
                     if (perfilPhotoImg && newPhoto) {
+                        const floatingWrapper = document.getElementById('perfilPhotoFloating');
                         perfilPhotoImg.style.opacity = '0';
                         setTimeout(() => {
                             perfilPhotoImg.src = newPhoto;
                             perfilPhotoImg.alt = newPhotoAlt;
+                            // Si es la foto de Pao (CONTACTO), subir posición
+                            if (isContacto) {
+                                floatingWrapper.classList.add('photo-pao');
+                            } else {
+                                floatingWrapper.classList.remove('photo-pao');
+                            }
                             perfilPhotoImg.style.opacity = '1';
                         }, 250);
+                    }
+
+                    // --- Cambio de header: normal vs contacto ---
+                    if (isContacto) {
+                        headerNormal.style.opacity = '0';
+                        setTimeout(() => {
+                            headerNormal.style.display = 'none';
+                            headerContacto.style.display = 'flex';
+                            setTimeout(() => { headerContacto.style.opacity = '1'; }, 20);
+                        }, 200);
+                    } else {
+                        headerContacto.style.opacity = '0';
+                        setTimeout(() => {
+                            headerContacto.style.display = 'none';
+                            headerNormal.style.display = 'flex';
+                            setTimeout(() => { headerNormal.style.opacity = '1'; }, 20);
+                        }, 200);
                     }
                 });
             });

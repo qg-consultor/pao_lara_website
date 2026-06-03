@@ -1347,6 +1347,7 @@ input[name="suplementos_tabs"] {
     align-items: flex-end;
     gap: 0;
     position: relative;
+    margin: 0 auto;  /* centra dentro del section */
 }
 
 /* ==========================================
@@ -1385,6 +1386,11 @@ input[name="suplementos_tabs"] {
     object-position: top center;
     display: block;
     transition: opacity 0.25s ease;
+}
+
+/* En CONTACTO (foto de Pao) subimos la posición para evitar aire arriba */
+.perfil-photo-floating.photo-pao .perfil-photo {
+    object-position: 50% 15%;
 }
 
 .perfil-photo-floating .perfil-photo-placeholder {
@@ -1443,11 +1449,39 @@ input[name="suplementos_tabs"] {
    la foto flota encima, así que dejamos padding-left para ocupar ese espacio */
 .perfil-card-header {
     display: flex;
-    align-items: flex-start;
+    align-items: stretch;
     padding: 18px 18px 16px 150px; /* 115px foto + 22px left + 13px gap */
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     min-height: 110px;
     transition: all 0.4s ease;
+    position: relative;
+}
+
+/* MODO NORMAL: logo + datos del paciente */
+.perfil-info-header {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: opacity 0.2s ease;
+}
+
+/* MODO CONTACTO: logo grande centrado */
+.perfil-info-contacto {
+    flex: 1;
+    display: none;           /* oculto por defecto, JS lo activa */
+    opacity: 0;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease;
+}
+
+.perfil-logo-contacto {
+    width: 140px;
+    height: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /* lo vuelve blanco para que se vea sobre glassmorphism */
+    opacity: 0.92;
 }
 
 /* Info del header */
