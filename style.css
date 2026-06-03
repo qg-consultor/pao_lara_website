@@ -1467,7 +1467,6 @@ input[name="suplementos_tabs"] {
     transition: opacity 0.2s ease;
 }
 
-/* MODO CONTACTO: logo grande centrado */
 .perfil-info-contacto {
     flex: 1;
     display: none;           /* oculto por defecto, JS lo activa */
