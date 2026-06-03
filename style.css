@@ -1314,7 +1314,7 @@ input[name="suplementos_tabs"] {
     max-width: 950px;
     display: flex;
     flex-direction: column;
-    margin-bottom: 30px; /* reducido de 70px para subir el contenido */
+    margin-bottom: 0px; /* reducido a 0 para subir toda la sección de tabs */
     position: relative;
     z-index: 2;
 }
@@ -1365,10 +1365,10 @@ input[name="suplementos_tabs"] {
 /* Foto del paciente flotando POR ENCIMA del borde superior de la tarjeta */
 .perfil-photo-floating {
     position: absolute;
-    top: 20px;            /* bajada 20px a petición del usuario */
+    top: 40px;            /* bajada más a petición del usuario */
     left: 22px;
-    width: 115px;
-    height: 158px;
+    width: 145px;         /* aumentada en ancho */
+    height: 195px;        /* aumentada en alto */
     border-radius: 16px;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.06);
@@ -1451,7 +1451,7 @@ input[name="suplementos_tabs"] {
 .perfil-card-header {
     display: flex;
     align-items: stretch;
-    padding: 18px 18px 16px 150px; /* 115px foto + 22px left + 13px gap */
+    padding: 18px 18px 16px 185px; /* 145px foto + 22px left + 18px gap */
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     min-height: 110px;
     transition: all 0.4s ease;
