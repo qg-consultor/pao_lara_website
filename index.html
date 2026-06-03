@@ -94,7 +94,7 @@
                             <span>Recetas</span>
                         </button>
                         <button class="pill-btn">
-                            <img src="ICONOS/report.png" alt="LYTTA" class="pill-icon">
+                            <img src="ICONOS/LYTTA.png" alt="LYTTA" class="pill-icon">
                             <span>LYTTA®</span>
                         </button>
                         <button class="pill-btn">
@@ -102,11 +102,11 @@
                             <span>Nutrición</span>
                         </button>
                         <button class="pill-btn">
-                            <img src="ICONOS/report.png" alt="Descanso" class="pill-icon">
+                            <img src="ICONOS/rest.png" alt="Descanso" class="pill-icon">
                             <span>Descanso</span>
                         </button>
                         <button class="pill-btn">
-                            <img src="ICONOS/report.png" alt="Hormonal" class="pill-icon">
+                            <img src="ICONOS/mujer.png" alt="Hormonal" class="pill-icon">
                             <span>Hormonal</span>
                         </button>
                     </div>
@@ -728,6 +728,43 @@ I                                <ul class="pane-list">
             }, { threshold: 0.15 });
 
             if (casosSection) casosObserver.observe(casosSection);
+
+            // --- LÓGICA DE CHAT INPUT ---
+            const chatInput = document.querySelector('.chat-input');
+            const fakePlaceholder = document.querySelector('.fake-placeholder');
+            const defaultPlaceholderHtml = 'Hola, ¿Cómo te sientes hoy? Elige una categoría, cuéntanos qué dudas tienes y empecemos con tu consulta de inmediato.<span class="blinking-cursor"></span>';
+            
+            if (chatInput && fakePlaceholder) {
+                chatInput.addEventListener('input', function() {
+                    if (this.value.length > 0) {
+                        fakePlaceholder.innerHTML = this.value.replace(/\\n/g, '<br>') + '<span class="blinking-cursor"></span>';
+                        fakePlaceholder.classList.add('is-typing');
+                    } else {
+                        fakePlaceholder.innerHTML = defaultPlaceholderHtml;
+                        fakePlaceholder.classList.remove('is-typing');
+                    }
+                });
+            }
+
+            // --- LÓGICA DE BOTONES DE CATEGORÍA (PILLS) ---
+            const pillBtns = document.querySelectorAll('.pill-btn');
+            pillBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Desactivar todos los demás
+                    pillBtns.forEach(b => b.classList.remove('active'));
+                    // Activar el clickeado
+                    this.classList.add('active');
+                    
+                    // Opcional: enfocar el chat y agregar un texto inicial
+                    if (chatInput) {
+                        const topic = this.querySelector('span').textContent;
+                        chatInput.value = `Quiero información sobre ${topic}: `;
+                        // Disparar evento input para actualizar el visualizador
+                        chatInput.dispatchEvent(new Event('input'));
+                        chatInput.focus();
+                    }
+                });
+            });
         });
     </script>
 </body>
