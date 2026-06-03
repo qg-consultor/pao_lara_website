@@ -1344,11 +1344,11 @@ input[name="suplementos_tabs"] {
     width: 100%;
     max-width: 950px;
     display: flex;
-    justify-content: center; /* Centra ambos elementos juntos */
+    justify-content: center; 
     align-items: flex-end;
     gap: 0;
     position: relative;
-    margin: 0 auto;  /* centra dentro del section */
+    margin: 0 auto;  
 }
 
 /* ==========================================
@@ -1376,7 +1376,7 @@ input[name="suplementos_tabs"] {
     box-shadow:
         0 12px 35px rgba(0, 0, 0, 0.55),
         0 0 0 1px rgba(3, 221, 203, 0.2);
-    z-index: 10;          /* encima de la tarjeta */
+    z-index: 10;         
 }
 
 .perfil-photo-floating .perfil-photo {
@@ -1451,7 +1451,7 @@ input[name="suplementos_tabs"] {
 .perfil-card-header {
     display: flex;
     align-items: stretch;
-    padding: 18px 18px 16px 195px; /* ajustado para foto de 155px */
+    padding: 18px 18px 16px 195px; 
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     min-height: 110px;
     transition: all 0.4s ease;
@@ -1526,6 +1526,7 @@ input[name="suplementos_tabs"] {
     font-family: 'DIN-Regular', sans-serif;
     font-size: 15px;
     color: var(--text-white);
+    transition: opacity 0.25s ease;
 }
 
 /* Cuerpo de la tarjeta */
@@ -1570,10 +1571,15 @@ input[name="suplementos_tabs"] {
     margin: 0;
 }
 
+#bioContent {
+    transition: opacity 0.25s ease;
+}
+
 /* ---- TIMELINE (Proceso) ---- */
 .perfil-timeline {
     position: relative;
     padding-left: 8px;
+    transition: opacity 0.25s ease;
 }
 
 .perfil-timeline::before {
@@ -1607,7 +1613,7 @@ input[name="suplementos_tabs"] {
     height: 16px;
     background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
     border-radius: 50%;
-    border: 2px solid rgba(7, 4, 21, 0.8);
+    border: 2px solid #045779; 
     font-size: 0;
     box-shadow: 0 0 8px rgba(3, 221, 203, 0.6);
 }

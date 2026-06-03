@@ -351,15 +351,15 @@ I                                <ul class="pane-list">
                                 <div class="perfil-datos">
                                     <div class="perfil-dato-row">
                                         <span class="perfil-dato-label">Nombre:</span>
-                                        <span class="perfil-dato-value">Agustín Cruz Vázquez</span>
+                                        <span class="perfil-dato-value" id="datoNombre">Agustín Cruz Vázquez</span>
                                     </div>
                                     <div class="perfil-dato-row">
                                         <span class="perfil-dato-label">Edad:</span>
-                                        <span class="perfil-dato-value">35 años</span>
+                                        <span class="perfil-dato-value" id="datoEdad">35 años</span>
                                     </div>
                                     <div class="perfil-dato-row">
                                         <span class="perfil-dato-label">Género:</span>
-                                        <span class="perfil-dato-value">Masculino</span>
+                                        <span class="perfil-dato-value" id="datoGenero">Masculino</span>
                                     </div>
                                 </div>
                             </div>
@@ -377,14 +377,16 @@ I                                <ul class="pane-list">
                             <!-- Tab: PACIENTE (BIO) -->
                             <div class="perfil-section is-active" id="paciente">
                                 <div class="perfil-section-subtitle">BIO</div>
-                                <p class="perfil-section-desc">Ingeniero en Sistemas, esposo y padre de familia. Durante años llevó una vida sedentaria debido a las exigencias de su trabajo, llegando a pesar <strong>110 kg</strong>.</p>
-                                <p class="perfil-section-desc" style="margin-top: 10px;">Decidió transformar su salud y comenzó un proceso de entrenamiento constante, demostrando disciplina, compromiso y perseverancia. Hoy ha logrado bajar a <strong>87 kg</strong>, perdiendo <strong>23 kg</strong> y mejorando significativamente su condición física y calidad de vida.</p>
+                                <div id="bioContent">
+                                    <p class="perfil-section-desc">Ingeniero en Sistemas, esposo y padre de familia. Durante años llevó una vida sedentaria debido a las exigencias de su trabajo, llegando a pesar <strong>110 kg</strong>.</p>
+                                    <p class="perfil-section-desc" style="margin-top: 10px;">Decidió transformar su salud y comenzó un proceso de entrenamiento constante, demostrando disciplina, compromiso y perseverancia. Hoy ha logrado bajar a <strong>87 kg</strong>, perdiendo <strong>23 kg</strong> y mejorando significativamente su condición física y calidad de vida.</p>
+                                </div>
                             </div>
 
                             <!-- Tab: PROCESO -->
                             <div class="perfil-section" id="proceso">
                                 <div class="perfil-section-subtitle">PROCESO</div>
-                                <div class="perfil-timeline">
+                                <div class="perfil-timeline" id="procesoTimeline">
                                     <div class="perfil-timeline-item" data-week="Sem 1">
                                         <div class="timeline-item-title">Evaluación inicial</div>
                                         <div class="timeline-item-desc">Análisis de composición corporal: 110 kg, metabolismo lento, vida sedentaria y hábitos alimenticios deficientes.</div>
