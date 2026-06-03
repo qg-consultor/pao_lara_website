@@ -1344,6 +1344,7 @@ input[name="suplementos_tabs"] {
     width: 100%;
     max-width: 950px;
     display: flex;
+    justify-content: center; /* Centra ambos elementos juntos */
     align-items: flex-end;
     gap: 0;
     position: relative;
