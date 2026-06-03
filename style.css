@@ -150,6 +150,7 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
+    height: 100dvh;
     z-index: -2;
     overflow: hidden;
     background: linear-gradient(90deg, #02a093 0%, #832bbd 100%);
@@ -2044,6 +2045,111 @@ input[name="suplementos_tabs"] {
 
     .casos-trainer-img {
         height: 320px;
+    }
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN (GLOBAL / MOBILE)
+   ========================================== */
+@media (max-width: 900px) {
+    /* Navbar Móvil */
+    .nav-links {
+        display: none !important;
+    }
+    
+    .navbar-container.menu-open .nav-links {
+        display: flex !important;
+    }
+    
+    #openmenu {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        position: relative !important;
+        right: auto !important;
+        top: auto !important;
+        display: block;
+    }
+    
+    .navbar-container {
+        padding: 15px 20px !important;
+        justify-content: space-between;
+    }
+
+    .navbar {
+        width: 100% !important;
+        max-width: 100% !important;
+        justify-content: space-between !important;
+        padding: 10px 20px !important;
+        border-radius: 30px !important;
+    }
+    
+    .navbar::after {
+        border-radius: 30px !important;
+    }
+
+    .nav-logo {
+        height: 35px;
+    }
+    
+    .navbar-container.sticky .navbar {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* Hero & Chat Card Móvil */
+    .hero-section {
+        padding: 100px 15px 40px 15px;
+        min-height: auto;
+    }
+    
+    .trainer-img {
+        max-height: 55vh;
+        width: auto;
+    }
+
+    .chat-card {
+        margin: 0;
+        padding: 20px 15px;
+        width: 100%;
+    }
+    
+    .fake-placeholder {
+        font-size: 15px;
+        min-height: 70px;
+    }
+    
+    .chat-input {
+        font-size: 15px;
+    }
+
+    /* Píldoras Slider Móvil */
+    .category-pills {
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 12px; /* Espacio para la barra */
+        gap: 12px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: var(--neon-cyan) rgba(255, 255, 255, 0.05);
+    }
+    
+    .pill-btn {
+        flex: 0 0 auto; /* Evita que las cápsulas se aplasten */
+    }
+
+    /* Custom Scrollbar (Navbar de opciones deslizable) */
+    .category-pills::-webkit-scrollbar {
+        height: 4px;
+    }
+    .category-pills::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        margin: 0 10px;
+    }
+    .category-pills::-webkit-scrollbar-thumb {
+        background: var(--neon-cyan);
+        border-radius: 4px;
     }
 }
 
