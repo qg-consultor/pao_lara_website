@@ -1365,7 +1365,7 @@ input[name="suplementos_tabs"] {
 /* Foto del paciente flotando POR ENCIMA del borde superior de la tarjeta */
 .perfil-photo-floating {
     position: absolute;
-    top: 60px;            /* bajada más a petición del usuario */
+    top: 70px;            /* bajada más a petición del usuario */
     left: 22px;
     width: 145px;         /* aumentada en ancho */
     height: 195px;        /* aumentada en alto */
