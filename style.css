@@ -1497,7 +1497,7 @@ input[name="suplementos_tabs"] {
 .perfil-brand-logo {
     height: 30px;
     object-fit: contain;
-    object-position: center; /* Centrado dentro del espacio disponible */
+    object-position: center; 
     filter: brightness(1.2);
     opacity: 0.9;
 }
@@ -1505,20 +1505,20 @@ input[name="suplementos_tabs"] {
 .perfil-datos {
     display: flex;
     flex-direction: column;
-    gap: 12px; /* aumentado de 5px para más leading */
+    gap: 12px;
 }
 
 .perfil-dato-row {
     display: flex;
     flex-direction: column;
-    gap: 5px; /* aumentado de 1px para más espacio entre label y value */
+    gap: 5px; 
 }
 
 .perfil-dato-label {
     font-family: 'DIN-Bold', sans-serif;
     font-size: 12px;
     letter-spacing: 0.5px;
-    color: var(--neon-cyan);
+    color: #df69f2; 
     text-transform: uppercase;
 }
 
@@ -1557,7 +1557,7 @@ input[name="suplementos_tabs"] {
     font-family: 'DIN-Bold', sans-serif;
     font-size: 10px;
     letter-spacing: 2px;
-    color: var(--neon-cyan);
+    color: #df69f2; 
     text-transform: uppercase;
     margin-bottom: 10px;
 }
