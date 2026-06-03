@@ -256,22 +256,75 @@ body {
     padding: 5px 0;
 }
 
-/* Botón de Audio */
-.audio-btn {
-    background: transparent;
-    border: none;
-    color: var(--text-white);
-    cursor: pointer;
-    margin-left: 20px;
+/* Botones Flotantes Globales */
+.floating-audio-btn {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(3, 221, 203, 0.1);
+    border: 1px solid var(--neon-cyan);
+    box-shadow: 0 0 15px rgba(3, 221, 203, 0.5);
+    color: var(--neon-cyan);
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
+    z-index: 2000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
-.audio-btn:hover {
+.floating-audio-btn:hover {
+    box-shadow: 0 0 25px rgba(3, 221, 203, 0.8);
+    transform: scale(1.1);
+}
+
+.floating-audio-btn.is-playing .audio-wave {
+    animation: sound-waves 1s infinite alternate ease-in-out;
+    transform-origin: center;
+}
+
+@keyframes sound-waves {
+    0% { transform: scale(0.85); opacity: 0.6; }
+    100% { transform: scale(1.15); opacity: 1; }
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(3, 221, 203, 0.15);
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 15px rgba(3, 221, 203, 0.3);
+}
+
+.back-to-top.visible {
     opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: var(--neon-cyan);
+    color: var(--bg-dark);
+    box-shadow: 0 0 25px var(--neon-cyan);
 }
 
 .nav-links a::after {
