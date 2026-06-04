@@ -2139,21 +2139,53 @@ input[name="suplementos_tabs"] {
         min-height: unset !important;
     }
 
-    .navbar-container.menu-open .nav-logo-area,
+    /* Eliminar la elipse (borde del pill/círculo) cuando el menú está abierto */
+    .navbar-container.menu-open .navbar::after {
+        display: none !important;
+    }
+
+    /* Logo: centrado y más grande */
+    .navbar-container.menu-open .nav-logo-area {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        position: relative !important;
+        transform: scale(1) !important;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .navbar-container.menu-open .nav-logo {
+        height: 80px;
+    }
+
     .navbar-container.menu-open .nav-links {
         opacity: 1 !important;
         pointer-events: auto !important;
         position: relative !important;
         transform: scale(1) !important;
-    }
-
-    .navbar-container.menu-open .nav-links {
         display: flex !important;
         flex-direction: column;
         align-items: center;
         gap: 40px;
         margin-left: 0;
     }
+
+    /* X de cerrar: esquina superior derecha con glow cyan */
+    .navbar-container.menu-open #openmenu {
+        position: absolute !important;
+        top: 20px !important;
+        right: 20px !important;
+        width: 50px !important;
+        height: 50px !important;
+    }
+
+    .navbar-container.menu-open #openmenu span {
+        background: var(--neon-cyan) !important;
+        box-shadow: 0 0 10px var(--neon-cyan), 0 0 20px rgba(3, 221, 203, 0.5) !important;
+    }
+
 
     /* Audio btn — ajustar a que no colisione con círculo de nav */
     .floating-audio-btn {
