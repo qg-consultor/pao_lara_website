@@ -49,6 +49,9 @@
 
 body {
     background-color: var(--bg-dark);
+    /* Gradiente base igual al aurora-bg para evitar el negro al hacer scroll */
+    background-image: linear-gradient(90deg, #02a093 0%, #832bbd 100%);
+    background-attachment: fixed;
     color: var(--text-white);
     min-height: 100vh;
     overflow-x: hidden;
@@ -2267,7 +2270,7 @@ input[name="suplementos_tabs"] {
         margin-left: 0 !important;
         max-width: 100%;
         position: relative;
-        min-height: 380px; /* Espacio suficiente para imagen + tarjeta */
+        min-height: 380px; 
     }
 
     /* Títulos: Bold arriba izquierda, Light arriba derecha */
@@ -2288,7 +2291,6 @@ input[name="suplementos_tabs"] {
         margin-top: -4px;
     }
 
-    /* Imagen: Vuelve a ser absolute, pegada abajo-izquierda superponiéndose al card */
     .image-layer {
         position: absolute !important;
         left: -30px !important;
@@ -2298,7 +2300,6 @@ input[name="suplementos_tabs"] {
         z-index: 5 !important;
         justify-content: flex-start !important;
         margin: 0 !important;
-        /* Animación de entrada desde la izquierda — conservada */
         opacity: 0 !important;
         transform: translateX(-80px) !important;
         transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
@@ -2315,13 +2316,12 @@ input[name="suplementos_tabs"] {
         width: auto;
     }
 
-    /* Tarjeta de video: empujada a la derecha para que la imagen la superponga */
     .video-layer {
         width: 85% !important;
         max-width: 85% !important;
         margin-left: auto !important;
         margin-right: 0 !important;
-        margin-top: 55px; /* Bajada para quedar debajo de los títulos */
+        margin-top: 55px; 
         position: relative !important;
         z-index: 3;
         transform: none !important;
