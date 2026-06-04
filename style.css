@@ -2258,52 +2258,72 @@ input[name="suplementos_tabs"] {
 
     /* ==== ABOUT / SOBRE MÍ ==== */
     .about-section {
-        padding: 50px 20px 50px 20px;
+        padding: 50px 15px 50px 15px;
         min-height: auto;
+        overflow: hidden;
     }
 
     .about-wrapper {
         margin-left: 0 !important;
         max-width: 100%;
-        align-items: center;
+        position: relative;
+        min-height: 380px; /* Espacio suficiente para imagen + tarjeta */
     }
 
+    /* Títulos: Bold arriba izquierda, Light arriba derecha */
     .title-bold-layer {
-        font-size: 52px;
-        text-align: center;
+        font-size: 36px;
+        text-align: left;
+        position: relative;
+        z-index: 6;
+        line-height: 1.1;
     }
 
     .title-light-layer {
-        font-size: 70px;
-        text-align: center;
-        letter-spacing: 2px;
+        font-size: 54px;
+        text-align: right;
+        letter-spacing: 1px;
+        position: relative;
+        z-index: 6;
+        margin-top: -4px;
     }
 
-    /* La foto del salto: mostrarla pero en flujo normal, no absolute */
+    /* Imagen: Vuelve a ser absolute, pegada abajo-izquierda superponiéndose al card */
     .image-layer {
-        position: relative !important;
-        left: auto !important;
-        bottom: auto !important;
-        transform: none !important;
-        opacity: 1 !important;
-        justify-content: center;
-        margin: 20px 0;
+        position: absolute !important;
+        left: -10px !important;
+        bottom: 0 !important;
+        top: auto !important;
+        width: auto !important;
+        z-index: 5 !important;
+        justify-content: flex-start !important;
+        margin: 0 !important;
+        /* Animación de entrada desde la izquierda — conservada */
+        opacity: 0 !important;
+        transform: translateX(-80px) !important;
+        transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
 
     .about-section.in-view .image-layer {
-        opacity: 1;
-        transform: none !important;
+        opacity: 1 !important;
+        transform: translateX(0) !important;
     }
 
     .about-img {
-        height: 350px !important;
+        height: 280px !important;
         width: auto;
     }
 
+    /* Tarjeta de video: empujada a la derecha para que la imagen la superponga */
     .video-layer {
-        width: 100%;
-        max-width: 100%;
-        margin-left: 0;
+        width: 72% !important;
+        max-width: 72% !important;
+        margin-left: auto !important;
+        margin-right: 0 !important;
+        margin-top: 55px; /* Bajada para quedar debajo de los títulos */
+        position: relative !important;
+        z-index: 3;
         transform: none !important;
         opacity: 1 !important;
     }
@@ -2311,6 +2331,7 @@ input[name="suplementos_tabs"] {
     .about-section.in-view .video-layer {
         transform: none !important;
     }
+
 
     /* ==== SERVICIOS ==== */
     .services-section {
