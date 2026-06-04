@@ -2137,6 +2137,9 @@ input[name="suplementos_tabs"] {
         border-radius: 0 !important;
         flex-direction: column !important;
         min-height: unset !important;
+        justify-content: center !important;
+        padding-top: 0 !important;
+        gap: 20px;
     }
 
     /* Eliminar la elipse (borde del pill/círculo) cuando el menú está abierto */
@@ -2153,7 +2156,8 @@ input[name="suplementos_tabs"] {
         display: flex !important;
         justify-content: center;
         align-items: center;
-        margin-bottom: 10px;
+        margin-bottom: 0;
+        margin-top: -40px; /* Sube el logo visualmente para balancear con la X arriba */
     }
 
     .navbar-container.menu-open .nav-logo {
