@@ -2291,7 +2291,7 @@ input[name="suplementos_tabs"] {
     /* Imagen: Vuelve a ser absolute, pegada abajo-izquierda superponiéndose al card */
     .image-layer {
         position: absolute !important;
-        left: -10px !important;
+        left: -30px !important;
         bottom: 0 !important;
         top: auto !important;
         width: auto !important;
@@ -2317,8 +2317,8 @@ input[name="suplementos_tabs"] {
 
     /* Tarjeta de video: empujada a la derecha para que la imagen la superponga */
     .video-layer {
-        width: 72% !important;
-        max-width: 72% !important;
+        width: 85% !important;
+        max-width: 85% !important;
         margin-left: auto !important;
         margin-right: 0 !important;
         margin-top: 55px; /* Bajada para quedar debajo de los títulos */
