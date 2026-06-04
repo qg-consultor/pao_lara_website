@@ -49,9 +49,8 @@
 
 body {
     background-color: var(--bg-dark);
-    /* Gradiente base igual al aurora-bg para evitar el negro al hacer scroll */
+    /* Gradiente base para evitar negro al hacer scroll en mobile */
     background-image: linear-gradient(90deg, #02a093 0%, #832bbd 100%);
-    background-attachment: fixed;
     color: var(--text-white);
     min-height: 100vh;
     overflow-x: hidden;
@@ -2064,9 +2063,10 @@ input[name="suplementos_tabs"] {
 
 @media (max-width: 900px) {
 
-    /* ==== FONDO ==== */
+    /* ==== FONDO: en mobile se ocultan los blobs animados.
+       El gradiente del body cubre toda la pantalla sin parpadeos. ==== */
     .aurora-bg {
-        height: 100dvh;
+        display: none;
     }
 
     /* ==== NAVBAR — SIEMPRE COLAPSADO (círculo hamburguesa) ==== */
