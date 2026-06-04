@@ -2166,7 +2166,7 @@ input[name="suplementos_tabs"] {
     /* ==== HERO SECTION ==== */
     .hero-section {
         padding-top: 110px;
-        padding-bottom: 40px;
+        padding-bottom: 50px;
         padding-left: 15px;
         padding-right: 15px;
         min-height: 100dvh;
@@ -2258,7 +2258,7 @@ input[name="suplementos_tabs"] {
 
     /* ==== ABOUT / SOBRE MÍ ==== */
     .about-section {
-        padding: 80px 20px 60px 20px;
+        padding: 50px 20px 50px 20px;
         min-height: auto;
     }
 
@@ -2314,7 +2314,7 @@ input[name="suplementos_tabs"] {
 
     /* ==== SERVICIOS ==== */
     .services-section {
-        padding: 80px 20px 100px 20px;
+        padding: 50px 20px 50px 20px;
         min-height: auto;
     }
 
@@ -2338,7 +2338,7 @@ input[name="suplementos_tabs"] {
 
     /* ==== SUPLEMENTOS ==== */
     .suplementos-section {
-        padding: 60px 15px 80px 15px;
+        padding: 50px 15px 50px 15px;
     }
 
     .suplementos-header .title-bold-layer {
@@ -2425,7 +2425,7 @@ input[name="suplementos_tabs"] {
 
     /* ==== TESTIMONIALES ==== */
     .casos-section {
-        padding: 80px 15px 100px 15px;
+        padding: 50px 15px 50px 15px;
     }
 
     .casos-header {
