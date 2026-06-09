@@ -394,6 +394,7 @@ body {
     border: 1px solid var(--neon-cyan);
     box-shadow: 0 0 15px rgba(3, 221, 203, 0.5);
     color: var(--neon-cyan);
+    z-index: 10000;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2530,7 +2531,8 @@ input[name="suplementos_tabs"] {
     /* Audio btn — ajustar a que no colisione con círculo de nav */
     .floating-audio-btn {
         top: 20px;
-        right: 20px;
+        left: 20px;
+        right: auto;
     }
 
     .back-to-top {
@@ -2797,7 +2799,7 @@ input[name="suplementos_tabs"] {
     .tabs-content-area {
         width: 100% !important;
         padding: 25px 18px !important;
-        min-height: 340px;
+        min-height: 520px;
     }
 
     .content-pane {
