@@ -2528,11 +2528,11 @@ input[name="suplementos_tabs"] {
     }
 
 
-    /* Audio btn — ajustar a que no colisione con círculo de nav */
+    /* Audio btn - restaurado a su posición correcta a la derecha */
     .floating-audio-btn {
         top: 20px;
-        left: 20px;
-        right: auto;
+        right: 20px;
+        left: auto;
     }
 
     .back-to-top {
