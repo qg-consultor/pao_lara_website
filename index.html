@@ -1172,13 +1172,11 @@
                     enterSiteBtn.addEventListener('click', () => {
                         welcomeOverlay.classList.add('hidden');
                         initWebAudio();
-                        if (ambientAudio.paused) {
-                            ambientAudio.play().then(() => {
-                                audioToggle.classList.add('is-playing');
-                            }).catch(e => console.log('Autoplay bloqueado'));
+                        ambientAudio.play().then(() => {
+                            audioToggle.classList.add('is-playing');
                             iconOn.style.display = 'block';
                             iconOff.style.display = 'none';
-                        }
+                        }).catch(e => console.log('Autoplay bloqueado', e));
                     });
                 }
 
