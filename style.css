@@ -2492,9 +2492,8 @@ input[name="suplementos_tabs"] {
         display: flex !important;
         justify-content: center;
         align-items: center;
-        margin-bottom: 0;
-        margin-top: -40px;
-        /* Sube el logo visualmente para balancear con la X arriba */
+        margin-bottom: 40px; /* Mayor espacio respecto al menú (textos) */
+        margin-top: -80px;   /* Más arriba */
     }
 
     .navbar-container.menu-open .nav-logo {
