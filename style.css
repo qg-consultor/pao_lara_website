@@ -1771,8 +1771,14 @@ input[name="suplementos_tabs"] {
     }
     
     .alimentos-accordion {
-        height: 350px;
+        height: 450px; /* Un poco más alto para las 4 filas verticales */
         width: 100%;
+        flex-direction: column;
+    }
+    
+    .alim-panel {
+        /* Para que la imagen se vea bien verticalmente */
+        background-position: center;
     }
     
     .alim-panel.is-active .alim-panel-content {

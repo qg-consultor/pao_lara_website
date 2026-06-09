@@ -534,7 +534,7 @@
                 <div class="alimentos-info-box" id="alimInfoBox">
                     <h3 id="alim-title" class="alim-title">Alimentos Funcionales</h3>
                     <p id="alim-desc" class="alim-desc">Selecciona una categoría de producto en el panel para descubrir cómo puede ayudarte a mejorar tu rendimiento de forma deliciosa y saludable.</p>
-                    <button class="alim-cta">VER OPCIONES +</button>
+                    <button id="btn-ver-opciones" class="alim-cta">VER OPCIONES +</button>
                 </div>
 
                 <!-- Accordion (Right) -->
@@ -1264,6 +1264,17 @@
                     }
                 });
             });
+
+            // --- LÓGICA DE BOTÓN VER OPCIONES (Scroll móvil) ---
+            const btnVerOpciones = document.getElementById('btn-ver-opciones');
+            if (btnVerOpciones) {
+                btnVerOpciones.addEventListener('click', () => {
+                    const accordion = document.querySelector('.alimentos-accordion');
+                    if (accordion) {
+                        accordion.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            }
         });
     </script>
 </body>
