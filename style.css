@@ -766,12 +766,6 @@ body {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    outline: none !important;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.pill-btn:focus {
-    outline: none !important;
 }
 
 .pill-btn:hover {
