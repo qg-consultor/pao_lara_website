@@ -1765,35 +1765,74 @@ input[name="suplementos_tabs"] {
 
 /* Responsiveness */
 @media (max-width: 900px) {
+    .alimentos-section {
+        padding: 60px 20px;
+    }
+
     .alimentos-layout {
         flex-direction: column;
         height: auto;
+        margin-top: 40px;
+        gap: 20px;
+    }
+
+    .alimentos-info-box {
+        padding: 30px 20px;
+    }
+
+    .alim-title {
+        font-size: 26px;
+        margin-bottom: 15px;
+    }
+
+    .alim-desc {
+        font-size: 15px;
+        margin-bottom: 25px;
     }
     
     .alimentos-accordion {
         max-height: 0;
         opacity: 0;
         width: 100%;
+        display: flex;
         flex-direction: column;
+        gap: 12px;
         overflow: hidden;
-        transition: all 0.5s ease;
+        transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease, margin-top 0.5s ease;
         margin-top: 0;
     }
     
     .alimentos-accordion.is-open {
-        max-height: 600px; /* Suficiente para expandir */
-        height: 450px;
+        max-height: 1000px;
         opacity: 1;
         margin-top: 20px;
     }
     
     .alim-panel {
+        width: 100%;
+        height: 70px;
+        flex: none;
+        transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease;
         background-position: center;
+        border-radius: 16px;
     }
     
-    .alim-panel.is-active .alim-panel-content {
-        left: 20px;
-        bottom: 20px;
+    .alim-panel.is-active {
+        height: 220px;
+        flex: none;
+    }
+
+    .alim-panel-content {
+        opacity: 1 !important;
+        bottom: 20px !important;
+        left: 20px !important;
+        transform: none !important;
+        text-align: left !important;
+        width: auto !important;
+    }
+
+    .alim-panel-title {
+        font-size: 16px;
     }
 }
 
